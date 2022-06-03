@@ -64,20 +64,9 @@ https://docs.google.com/spreadsheets/d/1mN7qLIq4Z2e9uTgh_gjQW86uiYzVQig_Yw2UFoj8
 
 | Column     | Type       | Options                        |
 | ---------- | ---------- | ------------------------------ |
-| content    | text       | null: false                    |
+| chat       | text       | null: false                    |
 | user       | references | null: false, foreign_key: true |
 | post       | references | null: false, foreign_key: true |
-
-### Association
-- belongs_to :post
-- belongs_to :user
-
-## Favoritsテーブル
-
-| Column      | Type       | Options                        |
-| ----------- | ---------- | ------------------------------ |
-| user        | references | null: false, foreign_key: true |
-| post        | references | null: false, foreign_key: true |
 
 ### Association
 - belongs_to :post
@@ -93,6 +82,7 @@ https://docs.google.com/spreadsheets/d/1mN7qLIq4Z2e9uTgh_gjQW86uiYzVQig_Yw2UFoj8
 ### Association
 - belongs_to :post
 - belongs_to :user
+
 
 ## Followsテーブル
 

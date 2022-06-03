@@ -9,7 +9,7 @@ class User < ApplicationRecord
          
          #has_one_attached :image
 
-         mount_uploader :image, ImageUploader
+         #mount_uploader :image, ImageUploader
 
          with_options format: { with: /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i, message: '英数混合のpasswordを設定してください' } do
           validates :password

@@ -1,0 +1,90 @@
+* {
+  box-sizing: border-box;
+}
+
+.top-page-header {
+  background-color: #48b7bc;
+}
+
+.top-page-header {
+  width: 100vw;
+  padding: 2vh 15vw;
+  display: flex;
+  flex-direction: column;
+}
+
+
+.nav {
+  font-size: 18px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 100%;
+  padding: 1vh 0;
+}
+
+.lists-left {
+  display: flex;
+  min-width: 100px;
+
+}
+
+.category-list {
+  text-decoration: none;
+  margin-right: 3vw;
+  color: #333333;
+}
+
+.brand-list {
+  text-decoration: none;
+  color: #333333;
+}
+
+.lists-right {
+  display: flex;
+  list-style: none;
+  align-items: flex-end;
+}
+
+.icon_image__area {
+  padding: 0 10px 0 0;
+}
+
+.icon_image {
+  width: 30px;
+  height: 30px;
+  border-radius: 15px;
+  object-fit: cover;
+  transition-duration: 0.7s;
+}
+
+.icon_image:hover {
+  border: solid 1px red;
+  opacity: 0.8;
+  transition-duration: 0.7s;
+}
+
+.user-nickname {
+  text-decoration: none;
+  margin-right: 3vw;
+  color: #333333;
+  font-weight: bold;
+}
+
+
+.logout {
+  text-decoration: none;
+  color: #333333;
+}
+
+.login {
+  text-decoration: none;
+  line-height: 32px;
+  margin-right: 3vw;
+  color: #333333;
+}
+
+.sign-up {
+  text-decoration: none;
+  color: #333333;
+}

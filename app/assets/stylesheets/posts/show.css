@@ -1,0 +1,15 @@
+.show__contents__area {
+  margin: 100px auto;
+  height: fit-content;
+  width: fit-content;
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 50px 0;
+}
+
+.show__item-img {
+  border-radius: 3px;
+  padding: 50px 0;
+  height: 500px;
+  width: 600px;
+}

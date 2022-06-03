@@ -1,0 +1,52 @@
+<%= render "shared/header" %>
+<div class="main">
+  <div class="header__background">
+
+
+  <%#スライダー実装divタグ%>
+   <div class="sliders">
+      <%#= image_tag 'slider.01.jpg', class:"slider__image"%>
+      <%#= image_tag 'slider.02.jpg', class:"slider__image"%>
+      <%#= image_tag 'slider.04.jpg', class:"slider__image"%>
+  </div>
+    <%#スライダー実装divタグ%>
+  </div>
+
+
+  <div class="index__contents">
+   <ul class="images">
+   <%#最新投稿が10件まで表示%>
+  <%# @posts.first(10).each do |post|%>
+  <li class="image">
+   <%#= link_to post_path(post.id)  do %>
+  <%#= post.title %><br>
+  <%#= image_tag post.image , class:"item-img" %><br>  
+  <%# end %>
+  <%#= l post.created_at %><br>
+  <%#= post.province.name%><br>
+  <%#投稿ユーザーのマイページへ遷移できるようにurlを設置する%>
+  <span>Photo By</span><%#= post.user.nickname%><br>
+  </li>
+  <%# end %>
+    <%#最新投稿が10件まで表示%>
+</ul>
+  <% if user_signed_in? %>
+   <div class="post__button__area">
+  <%= link_to new_post_path, class:"post_button" do %>
+  <%= image_tag '797_me_h.png', class:"post__button__icon"%>
+   </div>
+  <% end %>
+  <% else %>
+  <div class="post__button__area">
+  <%= link_to new_user_session_path, class:"post__button__area" do %>
+  <div class="post__button"></div>
+  <%#= image_tag '', class:"post__button__icon"%>
+  <% end %>
+  <% end %>
+
+
+  </div>
+  <div class="index__under">
+  </div>
+</div>
+<%= render "shared/footer" %>

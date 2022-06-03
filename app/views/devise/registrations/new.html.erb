@@ -1,0 +1,60 @@
+<h2>Sign up</h2>
+
+<%= form_with model: @user, url: user_registration_path, class: 'registration-main', local: true do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <div class="form-group">
+    <div class='form-text-wrap'>
+      <label class="form-text">ニックネーム</label>
+      <span class="indispensable">必須</span>
+    </div>
+    <%= f.text_area :nickname, class:"input-default", id:"nickname", placeholder:"ex) Toshichan", maxlength:"40" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password %>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "new-password" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  </div>
+
+  <div class="form-group">
+    <div class='form-text-wrap'>
+      <label class="form-text">Name</label>
+      <span class="indispensable">must</span>
+    </div>
+    <div class='input-name-wrap'>
+      <%= f.text_area :last_name, class:"input-name", id:"last-name", placeholder:"ex) Yamada" %>
+      <%= f.text_area :first_name, class:"input-name", id:"first-name", placeholder:"例) Taro" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class='form-text-wrap'>
+      <label class="form-text">Profile</label>
+      <span class="indispensable">Not must</span>
+    </div>
+    <%= f.text_area :profile, class:"input-default", placeholder:"例) furima太郎", maxlength:"1000" %>
+  </div>
+
+  <div class="icon__area">
+   <%= f.file_field :image, id:"item-image" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Sign up" %>
+  </div>
+<% end %>
+
+<%= render "devise/shared/links" %>
