@@ -1,0 +1,15 @@
+<%= render "shared/header" %>
+<div class="my__page__main">マイページ</div>
+<div class="my__post__area">
+<% @post.each do |post| %>
+<%= post.title %>
+<% end %>
+</div>
+    <%# if current_user.id == @user_id %>
+      <%= link_to "#{current_user.nickname}情報変更",  user_registration_path, method: :patch, class: "item-red-btn" %>
+        <p class="or-text">or</p>
+      <%= link_to "Delete Account",  user_registration_path, method: :delete, class:"item-destroy", id: "delete-confirmation",onclick: "return deleteCheck()" %>
+      <%#else%>
+      <div>本人以外</div>
+    <%# end %>
+<%= render "shared/footer" %>
