@@ -14,5 +14,20 @@
       <%= f.label :password_confirmation, "Confirmation" %>
       <%= f.password_field :password_confirmation, class: 'form-control' %>
 
+       <div class="form-group">
+    <div class='form-text-wrap'>
+      <label class="form-text">Profile</label>
+      <span class="indispensable">must</span>
+    </div>
+    <%= f.text_area :profile, class:"input-default", placeholder:"例) furima太郎", maxlength:"1000" %>
+  </div>
+
+      <div class="icon__area">
+      <%= f.file_field :profile_image, id:"item-image" %>
+      </div>
+
       <%= f.submit "Save changes", class: "btn btn-primary" %>
+      
     <% end %>
+
+ <%= link_to "チャットページに戻る", :back, class: 'btn'%>

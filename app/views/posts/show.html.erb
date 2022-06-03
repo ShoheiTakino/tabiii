@@ -12,20 +12,26 @@
  <%= @post.user.nickname %><br>
  </div>
  <%= @post.content%><br>
- <%= @post.province.name %><br>
- <%#コメント一覧表示%>
+ <%= @post.province.name %><div>ここに、天気APIをのせる。</div><br>
  <% if current_user.id == @post.user.id && user_signed_in? %>
  <%= link_to "edit", edit_post_path(@post) , method: :get %>
  <%= link_to "delete", post_path(@post), method: :delete %>
-  <%= render 'chats/chat_post' %>
-  <%= link_to new_post_chat_path(@post.id), class:"post_button" do %>
-  <div claas="new__comment__path">コメントする</div>
-  <% end %>
+  <%= render 'comments/chat_post' %><br>
  <% else %>
-  <%= render 'chats/chat_post' %>
+  <%= render 'comments/chat_post' %><br>
  <% end %>
  <%#=コメント機能%>
-   <%= render 'chats/chat_index' %>
+   <% @post.comments.each do |comments| %>
+    <%= l comments.created_at %><br>
+   <%= comments.chat %><br>
+   <div class="user__chat">by<%= comments.user.nickname %></div><br>
+   <% if current_user.id == comments.user_id%>
+   <div class="chat__edit"><%= link_to 'chat edit', edit_post_comment_path(comments.id) %></div>
+   <div class="chat__destroy"><%= link_to 'chat delete',  post_comment_path(comments.id), method: :delete %></div><br>
+   <% end %>
+   <% end %>
  </div>
  </div>
+ <%= link_to "チャットページに戻る", :back, class: 'btn'%>
+
 <%= render "shared/footer" %>
