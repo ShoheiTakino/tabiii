@@ -3,7 +3,7 @@
 <div class="my__post__area">
 <% @post.each do |post| %>
 <%= post.title %><br>
-<%= image_tag post.image %><br>
+<%= image_tag post.image, class:"user__show_image" %><br>
 <%= l post.created_at %><br>
 <%=  post.content %>
 <% end %>

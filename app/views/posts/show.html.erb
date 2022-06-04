@@ -21,17 +21,25 @@
   <%= render 'comments/chat_post' %><br>
  <% end %>
  <%#=コメント機能%>
-   <% @post.comments.each do |comments| %>
+ <div id="list">
+</div>
+   <% @post.comments.sort.reverse.each do |comments| %>
+    <div class="post__chats">
+    <div class="post__time">
     <%= l comments.created_at %><br>
+    </div>
+    <div class="post__chat">
    <%= comments.chat %><br>
-   <div class="user__chat">by<%= comments.user.nickname %></div><br>
+   </div>
+   <div class="post__chat__name">by<%= comments.user.nickname %></div><br>
    <% if current_user.id == comments.user_id%>
    <div class="chat__edit"><%= link_to 'chat edit', edit_post_comment_path(comments.id) %></div>
    <div class="chat__destroy"><%= link_to 'chat delete',  post_comment_path(comments.id), method: :delete %></div><br>
    <% end %>
+   </div>
    <% end %>
  </div>
  </div>
- <%= link_to "チャットページに戻る", :back, class: 'btn'%>
+ <%= link_to "メインページに戻る", root_path, class: 'btn'%>
 
 <%= render "shared/footer" %>
