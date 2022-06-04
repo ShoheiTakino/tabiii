@@ -5,11 +5,11 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
          has_many :posts
-         has_many :chats
+         has_many :comments
          
-         #has_one_attached :image
+         has_one_attached :profile_image
 
-         #mount_uploader :image, ImageUploader
+         mount_uploader :profile_image, ImageUploader
 
          with_options format: { with: /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i, message: '英数混合のpasswordを設定してください' } do
           validates :password

@@ -38,7 +38,7 @@ https://docs.google.com/spreadsheets/d/1mN7qLIq4Z2e9uTgh_gjQW86uiYzVQig_Yw2UFoj8
 | last_name           | string     | null: false                    |
 | first_name          | string     | null: false                    |
 | profile             | text       |                                |
-| profile_image       | integer    |                                |
+| profile_image       | string     |                                |
 
 ### Association
 - has_many :posts
