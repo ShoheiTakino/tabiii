@@ -4,7 +4,7 @@
 <%= form_with model: @post, local: true do |f| %>
  <%= f.file_field :image, id:"item-image" %>
 <%= f.text_area :title, placeholder:"Title", maxlength:"40" %>
-<%= f.text_area :content, placeholder:"" ,rows:"7" ,maxlength:"1000" %>
+<%= f.text_area :content, placeholder:"" ,rows:"7" ,maxlength:"1000",id:"count_text" %><div id="count_number"></div>
 <div class="weight-bold-text">
         
           <span class="indispensable">今回の旅行先</span>
