@@ -1,6 +1,6 @@
 <h2>Edit <%= resource_name.to_s.humanize %></h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), id:'icon_edit',html: { method: :put }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
    <div class="form-group">
@@ -48,6 +48,7 @@
   </div>
 
       <div class="icon__area">
+      <div id='icon__edit__area'></div>
       <%= f.file_field :profile_image, id:"item-image" %>
       </div>
 

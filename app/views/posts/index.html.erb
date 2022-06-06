@@ -25,7 +25,7 @@
   <%= l post.created_at %><br>
   <%= post.province.name%><br>
   <%#投稿ユーザーのマイページへ遷移できるようにurlを設置する%>
-  <span>Photo By</span><%= link_to "#{post.user.nickname}", user_path(post.id) %><br>
+  <span>Photo By</span><%= link_to "#{post.user.nickname}", user_path(post.user_id) %><br>
   </li>
   <% end %>
     <%#最新投稿が10件まで表示%>
