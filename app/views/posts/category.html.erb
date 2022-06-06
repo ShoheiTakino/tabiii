@@ -1,0 +1,18 @@
+<%= render "shared/header" %>
+<h2>カテゴリー <%= @province.name %></h2>
+<h2>投稿件数:<%= @province_num %>件</h2>
+  <ul>
+    <% @posts.each do |post| %>
+  <li class="image">
+   <%= link_to post_path(post.id)  do %>
+  <%= post.title %><br>
+  <%= image_tag post.image , class:"item-img" %><br>  
+  <% end %>
+  <%= l post.created_at %><br>
+  <%= post.province.name%><br>
+  <span>Photo By</span><%= link_to "#{post.user.nickname}", user_path(post.user_id) %><br>
+      </li>
+    <% end %>
+  </ul>
+</div>
+<%= render "shared/footer" %>

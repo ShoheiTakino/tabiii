@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: "posts#index"
+  get '/post/category', to:"posts#category"
   resources  :posts do
     resources :comments, only: [:new, :create, :edit, :update, :destroy]
     resource :favorites, only: [:create, :destroy]
