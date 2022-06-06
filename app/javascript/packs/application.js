@@ -10,6 +10,8 @@ require("channels")
 require("../chat")
 require("../count")
 require("../preview")
+require("../newUserImage")
+require("../editUserImage")
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference
