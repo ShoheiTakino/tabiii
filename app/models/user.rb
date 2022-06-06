@@ -39,7 +39,7 @@ class User < ApplicationRecord
         validates :nickname, presence: true
         validates :last_name, presence: true
         validates :first_name, presence: true
-        validates :profile, length: { minimum: 1, maximum: 1000 }
+        validates :profile, length: { minimum: 1, maximum: 200 }
       
         
 end
