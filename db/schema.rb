@@ -51,12 +51,13 @@ ActiveRecord::Schema.define(version: 2022_06_04_112127) do
   end
 
   create_table "follows", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "follower_id"
-    t.bigint "followed_id"
+    t.bigint "user_id"
+    t.bigint "follow_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["followed_id"], name: "index_follows_on_followed_id"
-    t.index ["follower_id"], name: "index_follows_on_follower_id"
+    t.index ["follow_id"], name: "index_follows_on_follow_id"
+    t.index ["user_id", "follow_id"], name: "index_follows_on_user_id_and_follow_id", unique: true
+    t.index ["user_id"], name: "index_follows_on_user_id"
   end
 
   create_table "posts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -89,7 +90,7 @@ ActiveRecord::Schema.define(version: 2022_06_04_112127) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "comments", "posts"
   add_foreign_key "comments", "users"
-  add_foreign_key "follows", "users", column: "followed_id"
-  add_foreign_key "follows", "users", column: "follower_id"
+  add_foreign_key "follows", "users"
+  add_foreign_key "follows", "users", column: "follow_id"
   add_foreign_key "posts", "users"
 end

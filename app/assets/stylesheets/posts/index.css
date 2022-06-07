@@ -1,6 +1,6 @@
 .header__background {
   background-color: royalblue;
-  height: 100vh;
+  height: 90vh;
   width: 100vw;
 }
 
@@ -19,7 +19,7 @@
 .index__contents {
   background-color: white;
   width: 100vw;
-  height: fit-content;
+  height: 100vh;
 }
 
 .images {
@@ -34,6 +34,10 @@
   text-decoration: none;
 }
 
+.name__link {
+  text-decoration: none;
+}
+
 .image {
   padding: 60px 20px 30px 30px;
 }
@@ -45,14 +49,25 @@
 }
 
 .item-img:hover {
-  opacity: 0.95;
-  transition-duration: 0.1s;
+  opacity: 0.9;
+  transition-duration: 0.2s;
 }
 
 .post__button__area {
-  width: 20px;
-  height: 20px;
-  position: center;
+  width: 100px;
+  background: white;
+  text-align: center;
+  border-radius: 50%;
+  bottom: 32px;
+  right: 32px;
+  position: fixed;
+  padding: 15px;
+  transition-duration: 0.7s;
+}
+
+.post__button__area:hover {
+  opacity: 0.7;
+  transition-duration: 0.7s;
 }
 
 .post__button__icon {
@@ -61,11 +76,21 @@
 }
 
 .post__button {
+  color: #fff;
+  display: block;
+  font-size: 18px;
   text-decoration: none;
+  margin-bottom: 5px;
 }
 
 .index__under {
-  background-color: lightgreen;
+  background-color: lightblue;
+  height: fit-content;
+  width: 100vw;
+}
+
+.index__slide__show {
   height: 100vh;
   width: 100vw;
+  background-color: blanchedalmond;
 }

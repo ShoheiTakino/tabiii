@@ -7,26 +7,26 @@ class User < ApplicationRecord
          has_many :posts, dependent: :destroy
          has_many :comments, dependent: :destroy
          has_many :Favorites, dependent: :destroy
-
-         class Follow < ApplicationRecord
-         has_many :follower, class_name: "follow", foreign_key: "follower_id", dependent: :destroy
-         has_many :followed, class_name: "follow", foreign_key: "followed_id", dependent: :destroy
-         has_many :following_user, through: :follower, source: :followed
-         has_many :follower_user, through: :followed, source: :follower
+         has_many :follows
+         has_many :followings, through: :follows, source: :follow
+         has_many :reverse_of_follows, class_name: 'follow', foreign_key: 'follow_id'
+         has_many :followers, through: :reverse_of_follows, source: :user
          
 
-         def follow(user_id)
-          follower.create(followed_id: user_id)
+         def follow(other_user)
+          unless self == other_user
+            self.follows.find_or_create_by(follow_id: other_user.id)
+          end
          end
 
-         def unfollow(user_id)
-          follower.find_by(followed_id: user_id).destroy
+         def unfollow(other_user)
+          follow = self.follows.find_by(follow_id: other_user.id)
+          follow.destroy if follow
          end
 
-         def following?(user)
-          following_user.include?(user)
+         def following?(other_user)
+          self.follows.include?(other_user)
          end
-        end
 
          has_one_attached :profile_image
 
@@ -36,7 +36,7 @@ class User < ApplicationRecord
           validates :password
         end
       
-        validates :nickname, presence: true
+        validates :nickname, length: { minimum: 1, maximum: 20 }
         validates :last_name, presence: true
         validates :first_name, presence: true
         validates :profile, length: { minimum: 1, maximum: 200 }

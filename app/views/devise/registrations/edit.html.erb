@@ -1,74 +1,73 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<div class="registration__new__full">
 
+<div class="video__area">
+<%= video_tag("/videos/49053.mp4", autoplay: :true, loop: :true, muted: :true,class:"video") %>
+</div>
+
+<div class="registration__new__left">
+<div class="registration__input__area">
+<div class="registration__input__area__inner">
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), id:'icon_edit',html: { method: :put }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
-   <div class="form-group">
+  <div class="registration__nickname__area">
     <div class='form-text-wrap'>
-      <label class="form-text">ニックネーム</label>
-      <span class="indispensable">必須</span>
+     Nickname <br> 
+    <%= f.text_area :nickname, class:"input-default", id:"nickname", maxlength:"20" %>
+     <div id="icon__edit__area"></div>
     </div>
-    <%= f.text_area :nickname, class:"input-default", id:"nickname", placeholder:"ex) Toshichan", maxlength:"40" %>
   </div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  <div class="registration__email__field">
+    <%= f.label :email %><br/>
+    <%= f.email_field :email,class:"email__filed", autofocus: true, autocomplete: "email" %>
   </div>
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
-    <% end %>
+  <div class="registration__password__name">
+  <div class="password__label">
+    <%= f.label :password %>
+    <%= f.password_field :password, autocomplete: "new-password", placeholder:" 6 minimum",class:"password__name" %>
+    </div>
+    <div class="password__area">
+    <%= f.label :Confirmation %><br>
+    <%= f.password_field :password_confirmation, autocomplete: "new-password",class:"confirmation__name" %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
+  
 
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
-  </div>
-
-     <div class="form-group">
+  <div class="form-group">
     <div class='form-text-wrap'>
       <label class="form-text">Profile</label>
-      <span class="indispensable">must</span>
     </div>
-     <%= f.text_area :profile, class:"input-default", placeholder:"200文字で自己紹介
+    <%= f.text_area :profile, class:"profile__input", placeholder:
+"200文字で自己紹介
 ■■ おすすめの旅行先
 
-
-■■ 今後行きたい旅先
-
-
-■■ 旅行はご飯目当て？景色目当て？
-
+■■ 今後行きたい旅
 
 ■■ tabiiiの仲間へひとこと!!", maxlength:"200" %>
   </div>
 
-      <div class="icon__area">
-      <div id='icon__edit__area'></div>
-      <%= f.file_field :profile_image, id:"item-image" %>
-      </div>
+  <div class="icon__area">
+   <%= f.file_field :profile_image, id:"item-image" %>
+  </div>
+
+    <div class="field">
+    <%= f.label :current_password %> 
+    <%= f.password_field :current_password, autocomplete: "current-password" %>
+  </div>
 
   <div class="actions">
-    <%= f.submit "Update" %>
+    <%= f.submit "Sign up" %>
   </div>
+
 <% end %>
-
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
 <%= link_to "Back", :back %>
+</div>
+</div>
+</div>
+<div class="registration__new__right">
+
+</div>
+</div>
