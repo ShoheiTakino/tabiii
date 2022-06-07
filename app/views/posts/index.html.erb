@@ -14,6 +14,11 @@
 
 
   <div class="index__contents">
+
+<%= search_form_for @q, url: post_category_path do |f| %>
+    <%= f.collection_select :province_id_eq, Province.where.not(id: 0), :id, :name, include_blank: "都道府県検索" %>
+    <%= f.submit '検索' %>
+<% end %>
    <ul class="images">
    <%#最新投稿が10件まで表示%>
   <% @posts.sort.reverse.first(10).each do |post|%>
@@ -24,7 +29,6 @@
   <% end %>
   <%= l post.created_at %><br>
   <%= post.province.name%><br>
-  <%#投稿ユーザーのマイページへ遷移できるようにurlを設置する%>
   <span>Photo By</span><%= link_to "#{post.user.nickname}", user_path(post.user_id) %><br>
   </li>
   <% end %>

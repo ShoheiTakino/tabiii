@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+before_action :search_category, only: [:index, :category]
+
   def index
     @user = User.all
     @posts = Post.all
@@ -49,6 +51,13 @@ class PostsController < ApplicationController
     end
   end
 
+  def category
+    @posts = @q.result
+    province_id = params[:q][:province_id_eq]
+    @province = Province.find_by(id: province_id)
+    @province_num = @posts.count
+  end
+
   private
   def post_params
     params.require(:post).permit(:title, :image, :content, :province_id).merge(user_id: current_user.id)
@@ -56,6 +65,10 @@ class PostsController < ApplicationController
 
   def cooment_params
     params.require(:comment).permit(:chat).merge(post_id: current_user.id)
+  end
+
+  def search_category
+    @q = Post.ransack(params[:q])
   end
 
 end

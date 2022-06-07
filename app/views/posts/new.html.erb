@@ -2,10 +2,20 @@
 <div class="post__new__main">
 <div claas="post__area">
 <%= form_with model: @post,id:'new_post' ,local: true do |f| %>
-<%= f.text_area :title, placeholder:"Title", maxlength:"40" %><br>
+<%= f.text_area :title, placeholder:"20文字もタイトルをつけよう!!", maxlength:"20" %><br>
  <%= f.file_field :image, id:"item-image" %><br>
  <div id="previews"></div><br>
-<%= f.text_area :content, placeholder:"" ,rows:"7" ,maxlength:"1000",id:"count_text" %><div id="count_number"></div><br>
+<%= f.text_area :content, placeholder:"400文字で旅の紹介をしよう!!
+■■ 今回の旅行の目的は？
+
+
+■■ 何が楽しかった？
+
+
+■■ おすすめの場所はどこかな？
+
+
+■■ 旅先で何かハプニングはあったかな？" ,maxlength:"400",id:"count_text" %><div id="count_number"></div><br>
 <div class="weight-bold-text">
         
           <span class="indispensable">今回の旅行先</span>
@@ -13,10 +23,9 @@
         <%= f.collection_select(:province_id, Province.all, :id, :name, {}, {class:"select-box", id:"item-prefecture"}) %>
         <div class="sell-btn-contents">
       <%= f.submit "Post" ,class:"sell-btn" %>
-      <%=link_to 'back', root_path, class:"back-btn" %>
     </div>
   </div>
   <% end %>
 </div>
- <%= link_to "チャットページに戻る", :back, class: 'btn'%>
+ <%= link_to "メインページに戻る", root_path, class: 'btn'%>
 <%= render "shared/footer" %>
