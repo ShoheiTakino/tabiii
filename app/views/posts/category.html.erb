@@ -1,6 +1,9 @@
 <%= render "shared/header" %>
 <h2>カテゴリー <%= @province.name %></h2>
 <h2>投稿件数:<%= @province_num %>件</h2>
+<% unless @posts.present? %>
+  <h2>まだ投稿はありません</h2>
+<% end %>
   <ul>
     <% @posts.each do |post| %>
   <li class="image">
@@ -15,4 +18,5 @@
     <% end %>
   </ul>
 </div>
+ <%= link_to "メインページに戻る", root_path, class: 'btn'%>
 <%= render "shared/footer" %>
