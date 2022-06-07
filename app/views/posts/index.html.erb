@@ -1,21 +1,23 @@
 <%= render "shared/header" %>
 <div class="main">
-  <div class="header__background">
+  <div class="header__background">動画流す
 
 
+  
+  </div>
+
+  <div class="index__slide__show">
   <%#スライダー実装divタグ%>
-   <div class="sliders">
+   <div class="sliders">スライドショー
       <%#= image_tag 'slider.01.jpg', class:"slider__image"%>
       <%#= image_tag 'slider.02.jpg', class:"slider__image"%>
       <%#= image_tag 'slider.04.jpg', class:"slider__image"%>
   </div>
     <%#スライダー実装divタグ%>
   </div>
-
-
-  <div class="index__contents">
-
-<%= search_form_for @q, url: post_category_path do |f| %>
+  
+  <div class="index__under">
+  <%= search_form_for @q, url: post_category_path do |f| %>
     <%= f.collection_select :province_id_eq, Province.where.not(id: 0), :id, :name, include_blank: "都道府県検索" %>
     <%= f.submit '検索' %>
 <% end %>
@@ -29,7 +31,12 @@
   <% end %>
   <%= l post.created_at %><br>
   <%= post.province.name%><br>
-  <span>Photo By</span><%= link_to "#{post.user.nickname}", user_path(post.user_id) %><br>
+  <span>Tabiii   </span><%= link_to "#{post.user.nickname}", user_path(post.user_id),class:"name__link" %>
+  <% if user_signed_in? %>
+  <% unless current_user.id == post.user.id %>
+<%= render "follows/follow_button", user: @user %>
+<% end %>
+<% end %>
   </li>
   <% end %>
     <%#最新投稿が10件まで表示%>
@@ -44,13 +51,8 @@
   <div class="post__button__area">
   <%= link_to new_user_session_path, class:"post__button__area" do %>
   <div class="post__button"></div>
-  <%#= image_tag '', class:"post__button__icon"%>
   <% end %>
   <% end %>
-
-
-  </div>
-  <div class="index__under">
   </div>
 </div>
 <%= render "shared/footer" %>

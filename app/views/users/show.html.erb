@@ -1,5 +1,6 @@
 <%= render "shared/header" %>
 <div class="my__page__main"><%= "#{@users.nickname}" %>マイページ</div>
+<%= @users.profile %>
 <div class="my__post__area">
 <% @post.each do |post| %>
 <%= post.title %><br>
