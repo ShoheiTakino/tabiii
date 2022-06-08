@@ -1,4 +1,96 @@
+.user__shoe__over__all {
+  width: 100%;
+  height: fit-content;
+  background-color: beige;
+}
+
+.user__show__main {
+  display: flex;
+}
+
+/*left*/
+
+.user__content__left {
+  width: 40%;
+  height: 80vh;
+}
+
+.user__content__left__area {
+  width: 34vw;
+  margin: 0 auto;
+}
+
+.fix {
+  position: fixed;
+  height: fit-content;
+  width: 30vw;
+  margin: 20vh auto;
+  border: solid 1px black;
+  border-radius: 10px;
+  background-color: darkgray;
+  padding: 10px 10px 40px 10px;
+}
+
+.user__content__left__area__inner {
+  margin: 0px 10px 70px 10px;
+}
+
+.profile__image {
+  width: 30px;
+  height: 30px;
+  border-radius: 15px;
+  object-fit: cover;
+  transition-duration: 0.7s;
+}
+
+.profile__image:hover {
+  border: solid 1px red;
+  opacity: 0.8;
+  transition-duration: 0.7s;
+}
+
+.user__show__nickname {
+
+}
+
+.user__show__profile {
+
+}
+
+.user__show__follow__area {
+  display: flex;
+  justify-content: space-around;
+}
+
+
+
+
+
+/*right*/
+
+.user__content__right {
+  width: 60%;
+  height: fit-content;
+  background-color: brown;
+}
+
+.my__post__area {
+  margin: 100px auto;
+  height: fit-content;
+  width: 60vw;
+  padding: 50px auto;
+}
+
+.user__show__index {
+  padding: 50px auto;
+  height: fit-content;
+  width: 60vw;
+}
+
 .user__show_image {
-  height: 400px;
-  width: 600px;
+  height: 20vh;
+  width: 20vw;
 } 
+
+
+
