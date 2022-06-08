@@ -1,12 +1,25 @@
 <%= render "shared/otherheader" %>
-<div class="header">
+<div class="new__post__header">
 </div>
-<div class="post__new__main">
-<div claas="post__area">
-<%= form_with model: @post,id:'new_post' ,local: true do |f| %>
+
+<div class="post__new__main"><%#全体%>
+<div class="flex">
+<div class="post__new__left"><%#leftエリア%>
+<div class="post____left__area__inner">
+      <div class="fix">
+        <img src=<%= current_user.profile_image.url %> class = "profile__image"><div class="user__show__nickname"><%= "#{current_user.nickname}" %></div><br>
+        <p>profile</p>
+         <div class="user__show__profile"><%= current_user.profile %></div><br>
+    </div>
+    </div>
+</div><%#leftエリア%>
+
+ <div class="post__new__right"><%#rightエリア%>
+ <div class="post__new__right__inner"><%#rightinnerエリア%>
+ <%= form_with model: @post,id:'new_post' ,local: true do |f| %>
 <%= f.text_area :title,class:"new__post__title", placeholder:"20文字もタイトルをつけよう!!", maxlength:"20" %><br>
  <%= f.file_field :image, id:"item-image" %><br>
- <div id="previews"></div><br>
+ <div id="previews"></div><br><%#プレビュー%>
 <%= f.text_area :content, placeholder:"400文字で旅の紹介をしよう!!
 ■■ 今回の旅行の目的は？
 
@@ -18,16 +31,18 @@
 
 
 ■■ 旅先で何かハプニングはあったかな？" ,maxlength:"400",id:"count_text",class:"new__post__content" %><div id="count_number"></div><br>
-<div class="weight-bold-text">
         
           <span class="indispensable">今回の旅行先</span>
-        </div>
         <%= f.collection_select(:province_id, Province.all, :id, :name, {}, {class:"select-box", id:"item-prefecture"}) %>
-        <div class="sell-btn-contents">
+
       <%= f.submit "Post" ,class:"sell-btn" %>
-    </div>
-  </div>
   <% end %>
-</div>
+
+
  <%= link_to "メインページに戻る", root_path, class: 'btn'%>
+ </div><%#leftinnerエリア%>
+ </div><%#leftエリア%>
+ </div>
+ </div><%#全体%>
+
 <%= render "shared/footer" %>
