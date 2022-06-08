@@ -3,7 +3,7 @@
 }
 
 .top-page-header {
-  background-color: rgba(173, 216, 230, 0.418);
+  background-color: lightblue;
   width: 100vw;
   padding: 1vh 15vw;
   display: flex;
@@ -14,7 +14,6 @@
 .top-page-header.sticky {
   position: fixed;
   top: 0;
-  
 }
 
 .category-list {

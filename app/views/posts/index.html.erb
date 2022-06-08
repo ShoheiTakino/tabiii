@@ -1,8 +1,11 @@
 <%= render "shared/header" %>
-<div class="main">
-  <div class="header__background">動画流す
 
+  <div class="header__background">
 
+  <div class="video__area">
+ 
+<%= video_tag("/videos/31569.mp4", autoplay: :true, loop: :true, muted: :true,class:"video") %>
+</div>
   
   </div>
 
@@ -54,6 +57,6 @@
    </div>
   <% end %>
   <% end %>
-  </div>
+
 </div>
 <%= render "shared/footer" %>
