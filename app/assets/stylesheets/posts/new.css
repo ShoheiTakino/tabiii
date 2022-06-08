@@ -1,4 +1,18 @@
+.header {
+  height: 100px;
+  width: 100%;
+
+}.new__post__title {
+  height: 25px;
+  width: 40vw;
+}
+
+.new__post__content {
+  width: 40vw;
+  height: 50vh;
+}
+
 .preview-image {
   height: 300px;
-  width: 400px;
+  width: 40vw;
 }

@@ -1,8 +1,10 @@
 <%= render "shared/header" %>
+<div class="header">
+</div>
 <div class="post__new__main">
 <div claas="post__area">
 <%= form_with model: @post,id:'new_post' ,local: true do |f| %>
-<%= f.text_area :title, placeholder:"20文字もタイトルをつけよう!!", maxlength:"20" %><br>
+<%= f.text_area :title,class:"new__post__title", placeholder:"20文字もタイトルをつけよう!!", maxlength:"20" %><br>
  <%= f.file_field :image, id:"item-image" %><br>
  <div id="previews"></div><br>
 <%= f.text_area :content, placeholder:"400文字で旅の紹介をしよう!!
@@ -15,7 +17,7 @@
 ■■ おすすめの場所はどこかな？
 
 
-■■ 旅先で何かハプニングはあったかな？" ,maxlength:"400",id:"count_text" %><div id="count_number"></div><br>
+■■ 旅先で何かハプニングはあったかな？" ,maxlength:"400",id:"count_text",class:"new__post__content" %><div id="count_number"></div><br>
 <div class="weight-bold-text">
         
           <span class="indispensable">今回の旅行先</span>

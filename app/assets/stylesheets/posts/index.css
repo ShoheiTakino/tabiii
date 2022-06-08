@@ -4,6 +4,20 @@
   width: 100vw;
 }
 
+.sliders {
+  overflow: hidden;
+  position: relative;
+  min-width: 960px;
+  height: 465px;
+}
+
+.sliders img {
+  display: none;
+  position: absolute;
+  left: 50%;
+  margin-left: -800px;
+}
+
 .slider__image {
   height: 500px;
   width: 1000px;

@@ -20,5 +20,5 @@ document.addEventListener('DOMContentLoaded', function(){
 
     previewWrapper.appendChild(previewImage);
     previewList.appendChild(previewWrapper);
-  })
-})
+  });
+});
