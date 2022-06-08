@@ -12,22 +12,25 @@
         <p>profile</p>
          <div class="user__show__profile"><%= @users.profile %></div><br>
 
-         <% unless current_user.id == @users %><%#細かい条件分岐入れる%>
+        
             <div class="d-flex"><%#左コンテンツフォロワー%>
-            <ul class="user__show__follow__area">
-            <li>
+            <ul class="user__show__follow__area__main">
+            
+            <li class="user__show__follow__area">
+             <% unless current_user.id == @users %><%#細かい条件分岐入れる%>
              <%#= link_to follows_user_path(@user) do %>
-            <h6>フォロー<%#= @following_users.count %></h6>
+            <h6 class="user__show__follow">フォロー<%#= @following_users.count %></h6>
             <%# end %>
+             <% end %>
             </li>
-            <li>
+            <li class="user__show__follower__area">
             <%#= link_to followers_user_path(@user) do %>
-            <h6>フォロワー<%#= @follower_users.count %></h6>
+            <h6 class="user__show__follower">フォロワー<%#= @follower_users.count %></h6>
               <%# end %>
               </li>
               </ul>
             </div><%#左コンテンツフォロワー%>
-            <% end %>
+           
 
 
             <% if current_user.id == @users %>
@@ -50,21 +53,25 @@
   </div><%#左コンテンツ%>
 
 
-<%#右コンテンツ%>
-  <div class="user__content__right">
+
+<div class="user__content__right"><%#右コンテンツ%>
   <div class="my__post__area"><%#右コンテンツ投稿一覧%>
-  <ul>
-<% @post.each do |post| %>
-<li class="user__show__index">
-<%= post.title %><br>
-<%= image_tag post.image, class:"user__show_image" %><br>
-<%= l post.created_at %><br>
-<%=  post.content %>
-</li>
-<% end %>
-</ul>
-</div><%#右コンテンツ投稿一覧%>
-  </div><%#右コンテンツ%>
+    <ul class="user__show__post__ul">
+      <% @post.each do |post| %>
+        <li class="user__show__index">
+        <%= link_to post_path(post.id),class:"user__show__post__url" do %>
+          <%= post.title %><br>
+          <%= image_tag post.image, class:"user__show_image" %><br>
+          <%= l post.created_at %><br>
+          <%= post.province.name%><br>
+          <%=  post.content %><br>
+          ♡<%= post.favorites.count%>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+  </div><%#右コンテンツ投稿一覧%>
+</div><%#右コンテンツ%>
 
 
 </div><%#フレックスボックス用クラス%>
