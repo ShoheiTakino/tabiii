@@ -15,6 +15,8 @@ require("../editUserImage")
 require('jquery')
 
 require('sticky.js')
+require('slick.js')
+//require('sticky2.js')
 //require('slideShow.js')
 
 // Uncomment to copy all static images under ../images to the output folder and reference

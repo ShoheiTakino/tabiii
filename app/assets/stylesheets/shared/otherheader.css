@@ -2,8 +2,8 @@
   box-sizing: border-box;
 }
 
-.top-page-header {
-  background-color: lightblue;
+.page-header {
+  background-color: rgb(2, 44, 58);
   width: 100vw;
   padding: 1vh 15vw;
   display: flex;
@@ -11,7 +11,7 @@
   position: absolute;
 }
 
-.top-page-header.sticky {
+.page-header.sticky {
   position: fixed;
   top: 0;
 }
@@ -33,18 +33,18 @@
 .lists-left {
   display: flex;
   min-width: 100px;
-
+  color: white;
 }
 
 .category-list {
   text-decoration: none;
   margin-right: 3vw;
-  color: #333333;
+  color: white;
 }
 
 .brand-list {
   text-decoration: none;
-  color: #333333;
+  color: white;
 }
 
 .lists-right {
@@ -74,24 +74,26 @@
 .user-nickname {
   text-decoration: none;
   margin-right: 3vw;
-  color: #333333;
+  color: white;
   font-weight: bold;
 }
 
 
 .logout {
   text-decoration: none;
-  color: #333333;
+  font-weight: bold;
+  color: white;
 }
+
 
 .login {
   text-decoration: none;
   line-height: 32px;
   margin-right: 3vw;
-  color: #333333;
+  color: white;
 }
 
 .sign-up {
   text-decoration: none;
-  color: #333333;
+  color: white;
 }
