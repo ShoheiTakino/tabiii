@@ -3,21 +3,26 @@
 }
 
 .top-page-header {
-  background-color: royalblue;
+  background-color: rgba(173, 216, 230, 0.01);
   width: 100vw;
   padding: 1vh 15vw;
   display: flex;
   flex-direction: column;
   position: absolute;
+  z-index: 1;
+  visibility: hidden;
 }
 
 .top-page-header.sticky {
   position: fixed;
+  visibility: visible;
   top: 0;
+  background-color: rgba(173, 216, 230, 0.7);
 }
 
 .category-list {
   font-weight: 800;
+  color: white;
 }
 
 
@@ -28,23 +33,24 @@
   flex-wrap: wrap;
   width: 100%;
   padding: 1vh 0;
+  color: white;
 }
 
 .lists-left {
   display: flex;
   min-width: 100px;
-
+  color: white;
 }
 
 .category-list {
   text-decoration: none;
   margin-right: 3vw;
-  color: #333333;
+  color: white;
 }
 
 .brand-list {
   text-decoration: none;
-  color: #333333;
+  color: white;
 }
 
 .lists-right {
@@ -74,24 +80,24 @@
 .user-nickname {
   text-decoration: none;
   margin-right: 3vw;
-  color: #333333;
+  color: white;
   font-weight: bold;
 }
 
 
 .logout {
   text-decoration: none;
-  color: #333333;
+  color: white;
 }
 
 .login {
   text-decoration: none;
   line-height: 32px;
   margin-right: 3vw;
-  color: #333333;
+  color: white;
 }
 
 .sign-up {
   text-decoration: none;
-  color: #333333;
+  color: white;
 }

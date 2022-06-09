@@ -1,5 +1,16 @@
+.new__post__header {
+  height: 65px;
+  width: 100%;
+}
+
+.show__main {
+  height: 150vh;
+  width: 100%;
+  margin-top: 100px;
+}
+
 .show__contents__area {
-  margin: 100px auto;
+  margin: 0 auto;
   height: fit-content;
   width: fit-content;
   border: 1px solid black;

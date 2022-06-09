@@ -35,6 +35,10 @@
   margin: 0px 10px 70px 10px;
 }
 
+.user__show__nickname {
+  font-weight: 800;
+}
+
 .profile__image {
   width: 30px;
   height: 30px;
@@ -84,7 +88,15 @@
 
 }
 
+.item-red-btn {
+  text-decoration: none;
+  color: black;
+}
 
+.item-destroy {
+  text-decoration: none;
+  color: black;
+}
 
 
 /*right*/
@@ -92,7 +104,6 @@
 .user__content__right {
   width: 60%;
   height: fit-content;
-
 }
 
 .my__post__area {

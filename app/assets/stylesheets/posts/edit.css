@@ -1,4 +1,7 @@
-
+.new__post__header {
+  height: 65px;
+  width: 100%;
+}
 
 .edit__area {
   margin: 100px auto;
