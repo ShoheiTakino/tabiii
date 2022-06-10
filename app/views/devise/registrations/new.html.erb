@@ -23,6 +23,23 @@
     <%= f.email_field :email,class:"email__filed", autofocus: true, autocomplete: "email" %>
   </div>
 
+   <%if @sns_id.present? %>
+   <%= hidden_field_tag :sns_auth, true %>
+ <% else %>
+   <div class="field">
+     <%= f.label :password %>
+     <% @minimum_password_length %>
+     <em>(<%= @minimum_password_length %> characters minimum)</em>
+     <br />
+     <%= f.password_field :password, autocomplete: "new-password" %>
+   </div>
+
+   <div class="field">
+     <%= f.label :password_confirmation %><br />
+     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+   </div>
+ <% end %>
+
   <div class="registration__password__name">
   <div class="password__label">
     <%= f.label :password %><br>
@@ -62,16 +79,29 @@
    <%= f.file_field :profile_image, id:"item-image" %>
   </div>
 
+  
+
   <div class="actions">
     <%= f.submit "Sign up" %>
   </div>
-  <%= render "devise/shared/links" %>
+  
 <% end %>
 
+<div class="registration__select">
+<div class="google__icon__area">
+<%= link_to user_google_oauth2_omniauth_authorize_path, method: :post do%>
+<%= image_tag 'googleicon.png', class:"google__icon"%>
+<% end %>
+</div>
+<div class="registration__right">
+<%= render "devise/shared/links" %>
+</div>
+</div>
 </div>
 </div>
 </div>
 <div class="registration__new__right">
-
+<div class="registration__title__area">
+<div class="registration__title">Tabiii</div>
 </div>
 </div>

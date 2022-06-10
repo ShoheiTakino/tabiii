@@ -71,11 +71,11 @@
   width: 100vw;
   height: 93vh;
   transition-duration: 0.7s;
-  opacity: 0.75;
+  opacity: 0.8;
 }
 
 .slider__image:hover {
-  opacity: 0.5;
+  opacity: 0.6;
   transition-duration: 0.7s;
 }
 
