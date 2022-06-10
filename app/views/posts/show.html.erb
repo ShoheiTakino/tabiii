@@ -29,7 +29,7 @@
  <% if current_user.id == @post.user.id && user_signed_in? %>
  <%= link_to "edit", edit_post_path(@post) , method: :get %>
  <%= link_to "delete", post_path(@post),id: "post__destroy", method: :delete %>
-  <%= render 'comments/chat_post' %><br>
+  <%= render partial: 'comments/chat_post', locals: { comment: @comment, post: @post } %><br><%#チャットおかしい。%>
  <% else %>
   <%= render 'comments/chat_post' %><br>
  <% end %>

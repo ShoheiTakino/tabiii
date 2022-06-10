@@ -1,22 +1,20 @@
 class CommentsController < ApplicationController
-  def new
-    @comment = Comment.new
-    @post = Post.find(params[:post_id])
-  end
+
 
   def create
     @post = Post.find(params[:post_id])
-    comment = @post.comments.new(comment_params)
-    if comment.save
-      #@post = Post.find(params[:post_id])
-      render json:{ post: comment}
-      #redirect_to post_path(@post)#ここをjsonにかる
+    @comment = @post.comments.new(comment_params)
+    if @comment.save
+      @post = Post.find(params[:post_id])
+      #render json:{ post: comment}
+      redirect_to post_path(@post)#ここをjsonにかる
     else 
-      redirect_to post_path(comment)
+      redirect_to post_path(@post)
     end
   end
 
   def destroy
+    
   end
 
   private 

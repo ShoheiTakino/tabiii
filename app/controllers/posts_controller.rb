@@ -23,8 +23,8 @@ before_action :search_category, only: [:index, :category]
   def show
     @post = Post.find(params[:id])
     @user = @post
-    @comment = Comment.find(params[:id])
     @comment = Comment.new
+    @comments = @post.comments
   end
   
   def edit
@@ -61,10 +61,6 @@ before_action :search_category, only: [:index, :category]
   private
   def post_params
     params.require(:post).permit(:title, :image, :content, :province_id).merge(user_id: current_user.id)
-  end
-
-  def cooment_params
-    params.require(:comment).permit(:chat).merge(post_id: current_user.id)
   end
 
   def search_category
