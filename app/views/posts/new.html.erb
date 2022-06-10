@@ -34,6 +34,9 @@
         
           <span class="indispensable">今回の旅行先</span>
         <%= f.collection_select(:province_id, Province.all, :id, :name, {}, {class:"select-box", id:"item-prefecture"}) %>
+        
+        <%= f.label :address, '住所'%>
+        <%= f.text_field :address %>
 
       <%= f.submit "Post" ,class:"sell-btn" %>
   <% end %>

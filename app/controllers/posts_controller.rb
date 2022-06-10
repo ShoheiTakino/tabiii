@@ -60,7 +60,7 @@ before_action :search_category, only: [:index, :category]
 
   private
   def post_params
-    params.require(:post).permit(:title, :image, :content, :province_id).merge(user_id: current_user.id)
+    params.require(:post).permit(:title, :image, :content, :province_id, :address).merge(user_id: current_user.id)
   end
 
   def search_category
