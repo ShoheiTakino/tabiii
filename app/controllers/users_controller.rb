@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   def show
     @user = User.all
     @users = User.find(params[:id])
+    @sns = @users.sns_credentials
     @post = @users.posts
     #@following_users = @users.following_user
     #@follower_users = @users.follower_user

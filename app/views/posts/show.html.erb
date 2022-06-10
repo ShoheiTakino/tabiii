@@ -8,7 +8,9 @@
  </div>
  
  <div class="show__image">
+
  <%= image_tag @post.image , class:"show__item-img" %><br>
+
  </div>
  <div class="show__nickname">
  <%= @post.user.nickname %><br>
@@ -26,7 +28,7 @@
  <%= @post.province.name %><div>ここに、天気APIをのせる。</div><br>
  <% if current_user.id == @post.user.id && user_signed_in? %>
  <%= link_to "edit", edit_post_path(@post) , method: :get %>
- <%= link_to "delete", post_path(@post), method: :delete %>
+ <%= link_to "delete", post_path(@post),id: "post__destroy", method: :delete %>
   <%= render 'comments/chat_post' %><br>
  <% else %>
   <%= render 'comments/chat_post' %><br>
@@ -45,7 +47,7 @@
    <div class="post__chat__name">by<%= comments.user.nickname %></div><br>
    <% if current_user.id == comments.user_id%>
    <div class="chat__edit"><%= link_to 'chat edit', edit_post_comment_path(comments.id) %></div>
-   <div class="chat__destroy"><%= link_to 'chat delete',  post_comment_path(comments.id), method: :delete %></div><br>
+   <div class="chat__destroy"><%= link_to 'chat delete',  post_comment_path(comments.id),method: :delete %></div><br>
    <% end %>
    </div>
    <% end %>

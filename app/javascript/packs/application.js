@@ -12,6 +12,8 @@ require("../count")
 require("../preview")
 require("../newUserImage")
 require("../editUserImage")
+require("../delete")
+require("../deletePost")
 require('jquery')
 
 require('sticky.js')
