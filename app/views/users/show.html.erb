@@ -44,7 +44,9 @@
    <%#表示の条件分岐実装する。%>
    <% if current_user.id == @users.id %>
       <%= link_to "#{current_user.nickname}情報変更",  user_registration_path, method: :patch, class: "item-red-btn" %>
-      <%= link_to "Delete Account",  user_registration_path, method: :delete, class:"item-destroy", id: "delete-confirmation",onclick: "return deleteCheck()" %><br>
+      <% if !@sns.present? %>
+      <%= link_to "Delete Account",  user_registration_path, method: :delete, class:"item-destroy", id: "delete-confirmation" %><br>
+      <% end %>
     <% end %>
      <%= link_to "トップページに戻る", root_path, class: 'btn'%>
     </div>

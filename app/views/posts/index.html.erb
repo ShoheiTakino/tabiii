@@ -59,7 +59,9 @@
   </ul>
   <ul class="post__nickname__profile">
   <li>
+   <% if post.user.profile_image.url.present? %>
   <div class="icon_image__area"><img src=<%= post.user.profile_image.url %> class = "icon_image"></div>
+  <% end %>
   </li>
   <li>
   <%= link_to "#{post.user.nickname}", user_path(post.user_id),class:"name__link" %>
