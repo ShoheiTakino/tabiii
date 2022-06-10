@@ -2,7 +2,7 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+         :recoverable, :rememberable, :validatable, :omniauthable, omniauth_providers: [:google_oauth2]
 
          has_many :posts, dependent: :destroy
          has_many :comments, dependent: :destroy
@@ -11,6 +11,20 @@ class User < ApplicationRecord
          has_many :followings, through: :follows, source: :follow
          has_many :reverse_of_follows, class_name: 'follow', foreign_key: 'follow_id'
          has_many :followers, through: :reverse_of_follows, source: :user
+         has_many :sns_credentials
+
+         def self.from_omniauth(auth)
+          sns = SnsCredential.where(provider: auth.provider, uid: auth.uid).first_or_create
+          user = User.where(email: auth.info.email).first_or_initialize(
+            nickname: auth.info.name,
+              email: auth.info.email
+          )
+          if user.persisted?
+            sns.user = user
+            sns.save
+          end
+          { user: user, sns: sns }
+         end
          
 
          def follow(other_user)

@@ -8,7 +8,7 @@
   <div class="header__right">
   旅に出よう<br>
   世界を見渡そう<br>
-  お気に入りの旅をシェアしよう
+  旅をシェアしよう
   </div>
   </div>
   <div class="video__area">
@@ -20,9 +20,15 @@
   <div class="index__slide__show">
   <%#スライダー実装divタグ%>
    <div class="sliders">
-      <div><%#= image_tag 'slideshow1', class:"slider__image" %></div>
-      <div><%#= image_tag 'slideshow2', class:"slider__image" %></div>
-      <div><%#= image_tag 'slideshow3', class:"slider__image" %></div>
+      <div>
+      <%= image_tag 'slideshow1', class:"slider__image" %>
+      </div>
+      <div>
+      <%= image_tag 'slideshow2', class:"slider__image" %>
+      </div>
+      <div>
+      <%= image_tag 'slideshow3', class:"slider__image" %>
+      </div>
   </div>
     <%#スライダー実装divタグ%>
   </div>
@@ -31,10 +37,7 @@
   <div class="index__under__introduce">
   - New Posts -
   </div>
-  <%= search_form_for @q, url: post_category_path do |f| %>
-    <%= f.collection_select :province_id_eq, Province.where.not(id: 0), :id, :name, include_blank: "都道府県検索" %>
-    <%= f.submit '探す' %>
-<% end %>
+
 
    <ul class="images">
    <%#最新投稿が10件まで表示%>
@@ -71,6 +74,11 @@
   <% end %>
     <%#最新投稿が10件まで表示%>
 </ul>
+
+  <%= search_form_for @q, url: post_category_path do |f| %>
+    <%= f.collection_select :province_id_eq, Province.where.not(id: 0), :id, :name, include_blank: "都道府県検索" %>
+    <%= f.submit '探す' %>
+<% end %>
   <% if user_signed_in? %>
    <div class="post__button__area">
   <%= link_to new_post_path, class:"post_button" do %>
