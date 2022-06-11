@@ -26,6 +26,39 @@
      <% end %>
     <% end %>
  <%= @post.province.name %><div>ここに、天気APIをのせる。</div><br>
+ <% if @post.address.present? %>
+ <div class="map__area">
+ <div class="map__introduce">おすすめの目的地</div>
+ <div id="map"></div>
+ </div>
+ <script>
+  let map
+  function initMap() {
+    geocoder = new google.maps.Geocoder()
+    var test ={lat:<%= @post.latitude %>, lng:<%= @post.longitude %>};
+
+    map = new google.maps.Map(document.getElementById('map'),{
+      center: test,
+      zoom: 15,
+      mapTypeControl: false,
+      streetViewControl: false
+    });
+    
+    var contentString = '住所: <%= @post.address %>';
+    var infoWindow = new google.maps.InfoWindow({
+      content: contentString
+    });
+
+    marker = new google.maps.Marker({
+      position: test,
+      map: map,
+      title: contentString
+    });
+  }
+ </script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=<%=ENV['MAP_API_KEY']%>&callback=initMap"></script>
+<% end %>
+
  <% if current_user.id == @post.user.id && user_signed_in? %>
  <%= link_to "edit", edit_post_path(@post) , method: :get %>
  <%= link_to "delete", post_path(@post),id: "post__destroy", method: :delete %>
