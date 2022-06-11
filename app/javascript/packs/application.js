@@ -16,6 +16,7 @@ require("../delete")
 require("../deletePost")
 require('jquery')
 
+
 require('sticky.js')
 require('slick.js')
 //require('sticky2.js')
