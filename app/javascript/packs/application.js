@@ -15,6 +15,7 @@ require("../editUserImage")
 require("../delete")
 require("../deletePost")
 require('jquery')
+require("channels")
 
 
 require('sticky.js')

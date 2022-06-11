@@ -23,8 +23,8 @@ before_action :search_category, only: [:index, :category]
   def show
     @post = Post.find(params[:id])
     @user = @post
+    @comments = @post.comments.includes(:user)
     @comment = Comment.new
-    @comments = @post.comments
   end
   
   def edit
