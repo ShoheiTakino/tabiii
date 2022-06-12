@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-before_action :search_category, only: [:index, :category]
+  before_action :search_category, only: [:index, :category]
 
   def index
     @user = User.all
@@ -26,7 +26,7 @@ before_action :search_category, only: [:index, :category]
     @comments = @post.comments.includes(:user)
     @comment = Comment.new
   end
-  
+
   def edit
     @post = Post.find(params[:id])
     @user = @post
@@ -59,6 +59,7 @@ before_action :search_category, only: [:index, :category]
   end
 
   private
+
   def post_params
     params.require(:post).permit(:title, :image, :content, :province_id, :address).merge(user_id: current_user.id)
   end
@@ -66,5 +67,4 @@ before_action :search_category, only: [:index, :category]
   def search_category
     @q = Post.ransack(params[:q])
   end
-
 end
