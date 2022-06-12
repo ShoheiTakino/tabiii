@@ -2,7 +2,6 @@ class FollowsController < ApplicationController
   before_action :set_user
 
   def create
-
     following = current_user.follow(@user)
     if following.save
       flash[:success] = 'ユーザーをフォローしました'
@@ -25,8 +24,8 @@ class FollowsController < ApplicationController
   end
 
   private
+
   def set_user
     @user = User.find(params[:follow_id])
   end
-  
 end
