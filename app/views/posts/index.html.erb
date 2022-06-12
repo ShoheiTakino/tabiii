@@ -18,7 +18,6 @@
   </div>
 
   <div class="index__slide__show">
-  <%#スライダー実装divタグ%>
    <div class="sliders">
       <div>
       <%#= image_tag 'slideshow1', class:"slider__image" %>
@@ -30,7 +29,6 @@
       <%#= image_tag 'slideshow3', class:"slider__image" %>
       </div>
   </div>
-    <%#スライダー実装divタグ%>
   </div>
   
   <div class="index__under">
@@ -40,7 +38,6 @@
 
 
    <ul class="images">
-   <%#最新投稿が10件まで表示%>
   <% @posts.sort.reverse.first(10).each do |post|%>
   <li class="image">
    <%= link_to post_path(post.id)  do %>
@@ -74,7 +71,6 @@
   </ul>
   </li>
   <% end %>
-    <%#最新投稿が10件まで表示%>
 </ul>
 
   <%= search_form_for @q, url: post_category_path do |f| %>
