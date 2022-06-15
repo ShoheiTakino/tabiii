@@ -1,6 +1,6 @@
 <%= render "shared/otherheader" %>
 
-<div class="user__shoe__over__all"><%#メイン全体%>
+<div class="user__show__over__all"><%#メイン全体%>
 
   <div class="user__show__main"><%#フレックスボックス用クラス%>
 
@@ -10,20 +10,20 @@
       <div class="fix">
         <img src=<%= @users.profile_image.url %> class = "profile__image"><div class="user__show__nickname"><%= "#{@users.nickname}" %></div><br>
         <p>profile</p>
-         <div class="user__show__profile"><%= @users.profile %></div><br>
+         <div class="post__show__profile"><%= @users.profile %></div><br>
 
         
             <div class="d-flex"><%#左コンテンツフォロワー%>
-            <ul class="user__show__follow__area__main">
+            <ul class="post__show__follow__area__main">
             
-            <li class="user__show__follow__area">
+            <li class="post__show__follow__area">
              <% unless current_user.id == @users %><%#細かい条件分岐入れる%>
              <%#= link_to follows_user_path(@user) do %>
-            <h6 class="user__show__follow">フォロー<%#= @following_users.count %></h6>
+            <h6 class="post__show__follow">フォロー<%#= @following_users.count %></h6>
             <%# end %>
              <% end %>
             </li>
-            <li class="user__show__follower__area">
+            <li class="post__show__follower__area">
             <%#= link_to followers_user_path(@user) do %>
             <h6 class="user__show__follower">フォロワー<%#= @follower_users.count %></h6>
               <%# end %>

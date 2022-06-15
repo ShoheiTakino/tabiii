@@ -103,6 +103,7 @@
 
 .post__title {
   text-decoration: none;
+  color: black;
 }
 
 .name__link {
@@ -144,6 +145,14 @@
   position: fixed;
   padding: 15px;
   transition-duration: 0.7s;
+}
+
+.favorite_btn {
+  text-decoration: none;
+}
+
+.hart {
+  color: red;
 }
 
 .post__button__area:hover {

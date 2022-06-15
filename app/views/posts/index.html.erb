@@ -18,19 +18,17 @@
   </div>
 
   <div class="index__slide__show">
-  <%#スライダー実装divタグ%>
    <div class="sliders">
       <div>
-      <%#= image_tag 'slideshow1', class:"slider__image" %>
+      <%= image_tag 'slideshow1', class:"slider__image" %>
       </div>
       <div>
-      <%#= image_tag 'slideshow2', class:"slider__image" %>
+      <%= image_tag 'slideshow2', class:"slider__image" %>
       </div>
       <div>
-      <%#= image_tag 'slideshow3', class:"slider__image" %>
+      <%= image_tag 'slideshow3', class:"slider__image" %>
       </div>
   </div>
-    <%#スライダー実装divタグ%>
   </div>
   
   <div class="index__under">
@@ -40,7 +38,6 @@
 
 
    <ul class="images">
-   <%#最新投稿が10件まで表示%>
   <% @posts.sort.reverse.first(10).each do |post|%>
   <li class="image">
    <%= link_to post_path(post.id)  do %>
@@ -66,6 +63,17 @@
   <li>
   <%= link_to "#{post.user.nickname}", user_path(post.user_id),class:"name__link" %>
   <% if user_signed_in? %>
+    <% if post.favorited_by?(current_user) %>
+    <%= link_to post_favorites_path(post), method: :delete, class: "favorite_btn" do %>
+     <div class="hart">♥<%= post.favorites.count %> </div>
+    <% end %>
+    <% else %>
+     <%= link_to post_favorites_path(post), method: :post, class: "favorite_btn" do %>
+      ♥<%= post.favorites.count %> 
+     <% end %>
+    <% end %>
+    <% end %>
+  <% if user_signed_in? %>
   <% unless current_user.id == post.user.id %>
     <%= render "follows/follow_button", user: post.user.id %>
   <% end %>
@@ -74,7 +82,6 @@
   </ul>
   </li>
   <% end %>
-    <%#最新投稿が10件まで表示%>
 </ul>
 
   <%= search_form_for @q, url: post_category_path do |f| %>
