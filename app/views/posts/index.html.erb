@@ -20,13 +20,13 @@
   <div class="index__slide__show">
    <div class="sliders">
       <div>
-      <%#= image_tag 'slideshow1', class:"slider__image" %>
+      <%= image_tag 'slideshow1', class:"slider__image" %>
       </div>
       <div>
-      <%#= image_tag 'slideshow2', class:"slider__image" %>
+      <%= image_tag 'slideshow2', class:"slider__image" %>
       </div>
       <div>
-      <%#= image_tag 'slideshow3', class:"slider__image" %>
+      <%= image_tag 'slideshow3', class:"slider__image" %>
       </div>
   </div>
   </div>
@@ -62,6 +62,17 @@
   </li>
   <li>
   <%= link_to "#{post.user.nickname}", user_path(post.user_id),class:"name__link" %>
+  <% if user_signed_in? %>
+    <% if post.favorited_by?(current_user) %>
+    <%= link_to post_favorites_path(post), method: :delete, class: "favorite_btn" do %>
+     <div class="hart">♥<%= post.favorites.count %> </div>
+    <% end %>
+    <% else %>
+     <%= link_to post_favorites_path(post), method: :post, class: "favorite_btn" do %>
+      ♥<%= post.favorites.count %> 
+     <% end %>
+    <% end %>
+    <% end %>
   <% if user_signed_in? %>
   <% unless current_user.id == post.user.id %>
     <%= render "follows/follow_button", user: post.user.id %>

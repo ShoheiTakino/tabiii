@@ -1,7 +1,8 @@
-.user__shoe__over__all {
+.user__show__over__all {
   width: 100%;
   height: fit-content;
   background-color: white;
+  padding-top: 50px;
 }
 
 .user__show__main {

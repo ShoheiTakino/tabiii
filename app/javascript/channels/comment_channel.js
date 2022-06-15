@@ -18,7 +18,7 @@ consumer.subscriptions.create({
   received(data) {
     const html = `
         <div class="comment">
-          <p class="user-info">${data.user.nickname}:</p>
+          <p class="comment__user__name">${data.user.nickname}</p>
           <p>${data.comment.chat}</p>
         </div>`
       const comments = document.getElementById("comments")

@@ -2,6 +2,21 @@
 <div class="new__post__header">
 </div>
 <div class="show__main">
+<div class="post__show__left">
+<div class="post__show__left__inner">
+ <%= link_to user_path(@post.user.id) do%>
+ <% if @post.user.profile_image.present? %>
+<img src=<%= @post.user.profile_image.url %> class = "profile__image">
+<% end %>
+<div class="user__show__nickname"><%= "#{@post.user.nickname}" %></div><br>
+        <p>profile</p>
+         <div class="user__show__profile"><%= @post.user.profile %></div><br>
+        <% end %>
+            
+
+</div>
+</div>
+<div class="post__show__right">
 <div class="show__contents__area">
 <div class="show__title">
  <%= @post.title %><br>
@@ -25,7 +40,7 @@
       ♡<%= @post.favorites.count %> 
      <% end %>
     <% end %>
- <%= @post.province.name %><div>ここに、天気APIをのせる。</div><br>
+ <%= @post.province.name %><br>
  <% if @post.address.present? %>
  <div class="map__area">
  <div class="map__introduce">おすすめの目的地</div>
@@ -56,7 +71,7 @@
     });
   }
  </script>
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=<%=ENV['MAP_API_KEY']%>&callback=initMap"></script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['MAP_API_KEY'] %>&callback=initMap"></script>
 <% end %>
 
  <% if current_user.id == @post.user.id && user_signed_in? %>
@@ -73,18 +88,22 @@
     <% end %>
  <% end %>
 
-
+<div class="post__comments">
 <div id="comments">
   <h4>＜コメント一覧＞</h4>
+  <ul>
     <% @post.comments.each do |comment| %>
+    <li class="post__comments">
       <div class="comment">
         <p class="user-info"><%= comment.user.nickname %>: </p>
         <p><%= comment.chat%></p>
       </div>
+      </li>
     <% end %>
+    </ul>
 </div>
-
-   
+</div>
+ </div>
  </div>
  </div>
  <%= link_to "メインページに戻る", root_path, class: 'btn'%>

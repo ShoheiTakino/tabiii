@@ -3,7 +3,7 @@
 TabiJiii
 #  アプリケーションの概要
 旅行をした人が、旅行の日記として画像や旅行先の情報を投稿していただき、投稿を見た方とのコミュニケーションを積極的に取っていくSNSです。
-#  *URL
+#  URL
 
 #  *テスト用アカウント
 
@@ -54,6 +54,7 @@ https://docs.google.com/spreadsheets/d/1mN7qLIq4Z2e9uTgh_gjQW86uiYzVQig_Yw2UFoj8
 | content      | text       | null: false                    |
 | province_id  | integer    | null: false                    |
 | user         | references | null: false, foreign_key: true |
+| address      | text       |                                |
 
 ### Association
 - has_many :comments
