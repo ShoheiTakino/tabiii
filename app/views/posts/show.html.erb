@@ -41,7 +41,7 @@
      <% end %>
     <% end %>
  <%= @post.province.name %><br>
- <% if @post.address.present? %>
+ <% if @post.address.present? && @post.latitude.present? && @post.longitude.present? %>
  <div class="map__area">
  <div class="map__introduce">おすすめの目的地</div>
  <div id="map"></div>

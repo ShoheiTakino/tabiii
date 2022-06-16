@@ -5,8 +5,8 @@ class Post < ApplicationRecord
   belongs_to :user
   has_many   :comments, dependent: :destroy
   has_many   :favorites, dependent: :destroy
-  geocoded_by :address
-  after_validation :geocode
+
+  
 
   def favorited_by?(user)
     favorites.where(user_id: user.id).exists?
@@ -18,4 +18,8 @@ class Post < ApplicationRecord
   validates :content, length: { minimum: 1, maximum: 400 }
   validates :image,       presence: true
   validates :province_id, numericality: { other_than: 1, message: "can't be blank" }
+
+  geocoded_by :address
+  after_validation :geocode
+  
 end
