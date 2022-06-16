@@ -71,7 +71,7 @@
     });
   }
  </script>
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['MAP_API_KEY'] %>&callback=initMap"></script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=<%= ENV["MAP_API_KYE"] %>&callback=initMap"></script>
 <% end %>
 
  <% if current_user.id == @post.user.id && user_signed_in? %>
@@ -87,7 +87,6 @@
       <%= f.submit "コメントをする", class: "comment-submit" %><br>
     <% end %>
  <% end %>
-
 <div class="post__comments">
 <div id="comments">
   <h4>＜コメント一覧＞</h4>
