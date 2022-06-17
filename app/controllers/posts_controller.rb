@@ -1,5 +1,7 @@
 class PostsController < ApplicationController
   before_action :search_category, only: [:index, :category]
+  before_action :set_post, only: [:show, :edit, :update]
+  before_action :move_to_index, except: [:index, :category]
 
   def index
     @user = User.all
@@ -9,6 +11,9 @@ class PostsController < ApplicationController
   def new
     @post = Post.new
     @user = Post.all
+    unless current_user.id != @post.user_id
+      redirect_to root_path
+    end
   end
 
   def create
@@ -21,19 +26,20 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.find(params[:id])
     @user = @post
     @comments = @post.comments.includes(:user)
     @comment = Comment.new
   end
 
   def edit
-    @post = Post.find(params[:id])
     @user = @post
+    if current_user.id == @post.user.id
+    else
+      redirect_to root_path
+    end
   end
 
   def update
-    @post = Post.find(params[:id])
     if @post.update(post_params)
       @user = Post.all
       @comment = Comment.new
@@ -66,5 +72,15 @@ class PostsController < ApplicationController
 
   def search_category
     @q = Post.ransack(params[:q])
+  end
+
+  def set_post
+    @post = Post.find(params[:id])
+  end
+
+  def move_to_index
+    unless user_signed_in?
+      redirect_to new_user_registration_path
+    end 
   end
 end
