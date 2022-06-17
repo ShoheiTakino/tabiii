@@ -6,7 +6,7 @@ Tabiii
 #  URL
 https://tabiii.herokuapp.com/
 #  テスト用アカウント
-email:  dousa@dousa
+email:  dousa@dousa  
 password:11111a
 #  利用方法
 投稿者  
@@ -21,17 +21,41 @@ password:11111a
 #  洗い出した要件定義
 要件定義スプレッドシート   
 https://docs.google.com/spreadsheets/d/15fGuyuroHvQm7HLGdeNhtPyawGrZCWFVT823LFLiars/edit?usp=sharing
-#  実装した機能についての画像やGIF動画
+#  実装した機能についての画像やGIF動画  
+1.ActionCableを用いたコメント非同期処理  
+[![Image from Gyazo](https://i.gyazo.com/8c9268d59f9ba628f09c1039d3c23784.gif)](https://gyazo.com/8c9268d59f9ba628f09c1039d3c23784)  
+
+2.GoogleMapAPIを利用した地図情報の埋め込み(※現在geocodeにエラーが出て、緯度と経度を算出できていない状況になっています。)  
+[![Image from Gyazo](https://i.gyazo.com/bc4a8396f0d4aa57339caec1cf1f26d3.gif)](https://gyazo.com/bc4a8396f0d4aa57339caec1cf1f26d3)  
+
+3.JavaScriptを用いた、ページへの動的機能の実装  
+・テキストの文字数カウント(自己紹介欄と投稿内容欄)  
+[![Image from Gyazo](https://i.gyazo.com/33c7ddb2d324a4288978995df67844ee.gif)](https://gyazo.com/33c7ddb2d324a4288978995df67844ee)
+・削除機能ボタンを押下後のポップアップ表示の実装  
+[![Image from Gyazo](https://i.gyazo.com/5ba4a465e7511ec0ebe85ea907b4b13b.gif)](https://gyazo.com/5ba4a465e7511ec0ebe85ea907b4b13b)  
+・画像プレビュー機能の実装  
+[![Image from Gyazo](https://i.gyazo.com/a614d919cb67937b7b0ffe89e9d82180.gif)](https://gyazo.com/a614d919cb67937b7b0ffe89e9d82180)  
+
+4.jQueryを用いた実装
+・stickyヘッダー  
+[![Image from Gyazo](https://i.gyazo.com/3cccff8a35cbdace2bd9fb7c04d22566.gif)](https://gyazo.com/3cccff8a35cbdace2bd9fb7c04d22566)  
+
+5.ActiveHashとransackを用いたカテゴリー別詳細ページの実装  
+[![Image from Gyazo](https://i.gyazo.com/0f72b0c8d4e7472a0bd7885d1a8e5c40.gif)](https://gyazo.com/0f72b0c8d4e7472a0bd7885d1a8e5c40)  
 
 #  実装予定の機能
-・各都道府県ごとの投稿一覧ページに、現地が所在する県庁所在地の天気予報を表示する。  
+1.各都道府県ごとの投稿一覧ページに、現地が所在する県庁所在地の天気予報を表示  
 【方法】  
-1.スクレイピングによって、気象庁もしくはウェザーニュース等のサイトから情報を取得する。  
-2.API機能を用いて天気情報を取得する。  
-・UI/UXを意識したフロント部分の改良  
+・スクレイピングによって、気象庁もしくはウェザーニュース等のサイトから情報を取得する。  
+・API機能を用いて天気情報を取得する。  
+
+2.UI/UXを意識したフロント部分の改良  
 バックエンドもしくはフロントエンドどちらを担当することとなっても、UI/UXの知識は必要になると考えているので、学習のためにも改良したいと考えています。  
-・お気に入り機能、フォロー機能への非同期処理を導入  
+
+3.お気に入り機能、フォロー機能への非同期処理を導入  
 上記のUXを改善するために必須であり、JavaScriptへの知識を深めたいと考えているので非同期処理への理解を深めたいと思います。  
+
+4.お気に入り登録した投稿のとフォローしているユーザーの投稿をそれぞれ一覧表示にできるビュー作成  
 
 #  データベース設計
 [![Image from Gyazo](https://i.gyazo.com/70fe69ecbe2bca4ce2d9819943074ca2.png)](https://gyazo.com/70fe69ecbe2bca4ce2d9819943074ca2)
@@ -97,8 +121,8 @@ https://docs.google.com/spreadsheets/d/15fGuyuroHvQm7HLGdeNhtPyawGrZCWFVT823LFLi
 
 | Column      | Type       | Options                        |
 | ----------- | ---------- | ------------------------------ |
-| follower    | references | null: false, foreign_key: true |
-| followed    | references | null: false, foreign_key: true |
+| follow      | references | null: false, foreign_key: true |
+| user        | references | null: false, foreign_key: true |
 
 ### Association
 - has_many :users
@@ -120,10 +144,9 @@ https://docs.google.com/spreadsheets/d/15fGuyuroHvQm7HLGdeNhtPyawGrZCWFVT823LFLi
 ・CSS  
 ・JavaScript  
 ・jQuery
-# *ローカルで動作方法
 
-#  *工夫したポイント
+#  工夫したポイント
 1.GoogleMapAPIを用いた、マップの埋め込み
 外部サービスを連携させることで、日頃利用しているサービスに近づけて実装の基本を学ぶことを意識しました。実装する際に、外部キーの登録等は比較的容易にできましたが、外部キーを環境変数に変えてマップを表示することに苦戦しました。外部キーや環境変数に対する知識を深めるいい機会になりました。  
 2.投稿一覧ページのビュー  
-今までRuby,Railsメインの学習を進めていたので、フロント実装に関する知識も蓄えたいと考えていました。そこで、JavaScriptやjQueryを作成したフロントの実装をインプットするいい機会となりました。
+今までRuby,Railsメインの学習を進めていたので、フロント実装に関する知識も蓄えたいと考えていました。そこで、JavaScriptやjQueryを作成したフロントの実装をインプットするいい機会となりました。  
