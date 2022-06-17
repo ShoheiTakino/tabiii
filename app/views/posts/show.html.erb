@@ -23,7 +23,7 @@
  </div>
  
  <div class="show__image">
- 
+
  <%= image_tag @post.image , class:"show__item-img" %><br>
 
  </div>
@@ -83,8 +83,14 @@
     <% end %>
  <% else %>
     <%= form_with model: [@post, @comment], id: "comment-form" do |f| %>
+    <ul class="show__comment">
+    <li>
       <%= f.text_area :chat , class: "comment-text"%>
+      </li>
+      <li>
       <%= f.submit "コメントをする", class: "comment-submit" %><br>
+      </li>
+      </ul>
     <% end %>
  <% end %>
 <div class="post__comments">
