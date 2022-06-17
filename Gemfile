@@ -66,3 +66,4 @@ gem 'omniauth', '~>1.9.1'
 gem 'geocoder'
 gem 'dotenv-rails'
 gem 'rails-i18n'
+gem "aws-sdk-s3", require: false
