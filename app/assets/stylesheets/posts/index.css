@@ -86,6 +86,10 @@
   height: 100vh;
 }
 
+.post__index__url {
+  text-decoration: none;
+}
+
 .index__under__introduce {
   font-size: xx-large;
   font-weight: 800;
@@ -153,6 +157,11 @@
 
 .hart {
   color: red;
+}
+
+.black_hart {
+  color: black;
+  text-decoration: none;
 }
 
 .post__button__area:hover {

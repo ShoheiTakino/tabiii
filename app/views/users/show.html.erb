@@ -8,7 +8,8 @@
       <div class="user__content__left__area">
       <div class="user__content__left__area__inner">
       <div class="fix">
-        <img src=<%= @users.profile_image.url %> class = "profile__image"><div class="user__show__nickname"><%= "#{@users.nickname}" %></div><br>
+      <% if @users.profile_image.url.present? %>
+        <img src=<%= @users.profile_image.url %> class = "profile__image"><% end %><div class="user__show__nickname"><%= "#{@users.nickname}" %></div><br>
         <p>profile</p>
          <div class="post__show__profile"><%= @users.profile %></div><br>
 
