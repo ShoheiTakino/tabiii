@@ -17,6 +17,7 @@
 </div>
   </div>
 
+
   <div class="index__slide__show">
    <div class="sliders">
       <div>
@@ -31,6 +32,8 @@
   </div>
   </div>
   
+<% if @posts.present? %>
+
   <div class="index__under">
   <div class="index__under__introduce">
   - New Posts -
@@ -83,11 +86,12 @@
   </li>
   <% end %>
 </ul>
-
+<div class="serch__btn">
   <%= search_form_for @q, url: post_category_path do |f| %>
     <%= f.collection_select :province_id_eq, Province.where.not(id: 0), :id, :name, include_blank: "都道府県検索" %>
     <%= f.submit '探す' %>
 <% end %>
+</div>
   <% if user_signed_in? %>
    <div class="post__button__area">
   <%= link_to new_post_path, class:"post_button" do %>
@@ -103,4 +107,26 @@
   <% end %>
 
 </div>
+
+<% else %>
+<div class="index__under__non">
+  <div class="new__post__coming__soon">
+  New Posts Coming Soon...
+  </div>
+  <% if user_signed_in? %>
+   <div class="post__button__area">
+  <%= link_to new_post_path, class:"post_button" do %>
+  <%= image_tag '797_me_h.png', class:"post__button__icon"%>
+   </div>
+  <% end %>
+  <% else %>
+ <div class="post__button__area">
+  <%= link_to new_user_session_path, class:"post_button" do %>
+  <%= image_tag '797_me_h.png', class:"post__button__icon"%>
+   </div>
+  <% end %>
+  <% end %>
+</div>
+
+<% end %>
 <%= render "shared/footer" %>
