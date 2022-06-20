@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
+  before_action :set_item, only: [:show, :edit]
+  before_action :set_follow, only: [:follows, :followers]
+
   def show
-    @user = User.all
     @users = User.find(params[:id])
     @sns = @users.sns_credentials
     @post = @users.posts
@@ -9,13 +11,11 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.all
+    unless current_user.id == @user
+      redirect_to root_path
+    end
     user = User.new
     current_user.id == @user.id
-    # if current_user.id == @user
-    # else
-    # redirect_to root_path
-    # end
   end
 
   def update
@@ -29,12 +29,10 @@ class UsersController < ApplicationController
   end
 
   def follows
-    user = User.find(paramas[:id])
     @users = user.following_user.page(params[:page]).per(3).reverse_order
   end
 
   def followers
-    user = User.find(params[:id])
     @user = user.follower_user.page(params[:page]).per(3).reverse_order
   end
 
@@ -43,4 +41,12 @@ class UsersController < ApplicationController
   def user_params
     params.permit(:nickname, :email, :password, :profile, :profile_image).merge(user: current_user.id)
   end
+
+  def set_item
+    @user = User.all
+  end
+
+  def set_follow
+    user = User.find(params[:id])
+  end 
 end

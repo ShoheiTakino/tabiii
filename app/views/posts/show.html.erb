@@ -4,20 +4,28 @@
 <div class="show__main">
 <div class="post__show__left">
 <div class="post__show__left__inner">
- <%= link_to user_path(@post.user.id) do%>
+ 
  <% if @post.user.profile_image.present? %>
 <img src=<%= @post.user.profile_image.url %> class = "profile__image">
 <% end %>
 <div class="user__show__nickname"><%= "#{@post.user.nickname}" %></div><br>
-        <p>profile</p>
+        <p class="post__pro">profile</p>
          <div class="user__show__profile"><%= @post.user.profile %></div><br>
-        <% end %>
+         <div class="show__index__go">
+         <div class="user__show__go">
+         <%= link_to "ユーザー詳細ページへ", user_path(@post.user.id), class:"btn"%>
+        </div>
+        <div class="user__index__go">
+        <%= link_to "メインページに戻る", root_path, class: 'btn'%>
+        </div>
+        </div>
             
 
 </div>
 </div>
 <div class="post__show__right">
 <div class="show__contents__area">
+<div class="show__contents__inner">
 <div class="show__title">
  <%= @post.title %><br>
  </div>
@@ -27,20 +35,18 @@
  <%= image_tag @post.image , class:"show__item-img" %><br>
 
  </div>
- <div class="show__nickname">
- <%= @post.user.nickname %><br>
- </div>
+
  <%= @post.content%><br>
   <% if @post.favorited_by?(current_user) %>
     <%= link_to post_favorites_path(@post), method: :delete, class: "favorite_btn" do %>
-     ♥<%= @post.favorites.count %> 
+     <div class="hart">♥<%= @post.favorites.count %> <br></div>
     <% end %>
     <% else %>
      <%= link_to post_favorites_path(@post), method: :post, class: "favorite_btn" do %>
-      ♡<%= @post.favorites.count %> 
+      <div class="black_hart">♥<%= @post.favorites.count %> <br></div>
      <% end %>
     <% end %>
- <%= @post.province.name %><br>
+ <%= @post.province.name %>
  <% if @post.address.present? && @post.latitude.present? && @post.longitude.present? %>
  <div class="map__area">
  <div class="map__introduce">おすすめの目的地</div>
@@ -83,13 +89,21 @@
     <% end %>
  <% else %>
     <%= form_with model: [@post, @comment], id: "comment-form" do |f| %>
+    <ul class="show__comment">
+    <li>
       <%= f.text_area :chat , class: "comment-text"%>
+      </li>
+      <li>
       <%= f.submit "コメントをする", class: "comment-submit" %><br>
+      </li>
+      </ul>
     <% end %>
  <% end %>
 <div class="post__comments">
 <div id="comments">
+<% if @post.comments.present? %>
   <h4>＜コメント一覧＞</h4>
+  <% end %>
   <ul>
     <% @post.comments.each do |comment| %>
     <li class="post__comments">
@@ -102,9 +116,10 @@
     </ul>
 </div>
 </div>
+</div>
  </div>
  </div>
  </div>
- <%= link_to "メインページに戻る", root_path, class: 'btn'%>
+ 
 
 <%= render "shared/footer" %>
