@@ -57,7 +57,6 @@
   position: relative;
   height: 100vh;
   width: 100vw;
-  background-color: blanchedalmond;
 }
 
 
@@ -69,13 +68,13 @@
 
 .slider__image {
   width: 100vw;
-  height: 93vh;
+  height: 100vh;
   transition-duration: 0.7s;
   opacity: 0.8;
 }
 
 .slider__image:hover {
-  opacity: 0.6;
+  opacity: 0.9;
   transition-duration: 0.7s;
 }
 

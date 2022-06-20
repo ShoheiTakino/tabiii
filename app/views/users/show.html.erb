@@ -68,7 +68,11 @@
           <%= l post.created_at %><br>
           <%= post.province.name%><br>
           <%=  post.content %><br>
-          ♡<%= post.favorites.count%>
+          <% if post.favorites.present?%>
+          <div class="hart">♥<%= post.favorites.count %> <br></div>
+          <% else %>
+          <div class="black_hart">♥<%= post.favorites.count %> <br></div>
+          <% end %>
           <% end %>
         </li>
       <% end %>
