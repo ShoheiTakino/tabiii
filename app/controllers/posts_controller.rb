@@ -11,9 +11,7 @@ class PostsController < ApplicationController
   def new
     @post = Post.new
     @user = Post.all
-    unless current_user.id != @post.user_id
-      redirect_to root_path
-    end
+    redirect_to root_path unless current_user.id != @post.user_id
   end
 
   def create
@@ -79,8 +77,6 @@ class PostsController < ApplicationController
   end
 
   def move_to_index
-    unless user_signed_in?
-      redirect_to new_user_registration_path
-    end 
+    redirect_to new_user_registration_path unless user_signed_in?
   end
 end

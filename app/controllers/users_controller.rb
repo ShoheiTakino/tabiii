@@ -11,9 +11,7 @@ class UsersController < ApplicationController
   end
 
   def edit
-    unless current_user.id == @user
-      redirect_to root_path
-    end
+    redirect_to root_path unless current_user.id == @user
     user = User.new
     current_user.id == @user.id
   end
@@ -48,5 +46,5 @@ class UsersController < ApplicationController
 
   def set_follow
     user = User.find(params[:id])
-  end 
+  end
 end
