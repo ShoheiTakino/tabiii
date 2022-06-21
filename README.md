@@ -57,6 +57,9 @@ https://docs.google.com/spreadsheets/d/15fGuyuroHvQm7HLGdeNhtPyawGrZCWFVT823LFLi
 
 4.お気に入り登録した投稿のとフォローしているユーザーの投稿をそれぞれ一覧表示にできるビュー作成  
 
+5.単体テストコード追加  
+
+
 #  データベース設計
 [![Image from Gyazo](https://i.gyazo.com/70fe69ecbe2bca4ce2d9819943074ca2.png)](https://gyazo.com/70fe69ecbe2bca4ce2d9819943074ca2)
 

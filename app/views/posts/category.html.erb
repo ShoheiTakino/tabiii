@@ -1,22 +1,71 @@
 <%= render "shared/otherheader" %>
-<h2>カテゴリー <%= @province.name %></h2>
-<h2>投稿件数:<%= @province_num %>件</h2>
-<% unless @posts.present? %>
+<div class="category__header">
+</div>
+<% if !@posts.present? %>
+<div class="non__serch">
   <h2>まだ投稿はありません</h2>
-<% end %>
-  <ul>
-    <% @posts.reverse.each do |post| %>
+  </div>
+
+<% else %>
+<div class="category__wather">
+<div class="none">
+--Weather Forecast System--<br>
+--Under Construction--
+</div>
+</div>
+
+<div class="category__index">
+<div class="category__intro">
+-<%= @province.name %>-
+</div>
+  <ul class="images">
+  <% @posts.sort.reverse.first(10).each do |post|%>
   <li class="image">
-   <%= link_to post_path(post.id)  do %>
+   <%= link_to post_path(post.id), class:"post__index__url"  do %>
+   <div class="post__title">
   <%= post.title %><br>
+  </div>
   <%= image_tag post.image , class:"item-img" %><br>  
   <% end %>
-  <%= l post.created_at %><br>
-  <%= post.province.name%><br>
-  <span>Photo By</span><%= link_to "#{post.user.nickname}", user_path(post.user_id) %><br>
-      </li>
+  <ul class="post__time__place">
+  <li class="index__time">
+  <%= l post.created_at %>
+  </li>
+  <li class="post__place">
+  <% if user_signed_in? %>
+    <% if post.favorited_by?(current_user) %>
+    <%= link_to post_favorites_path(post), method: :delete, class: "favorite_btn" do %>
+     <div class="hart">♥<%= post.favorites.count %> </div>
     <% end %>
+    <% else %>
+     <%= link_to post_favorites_path(post), method: :post, class: "favorite_btn" do %>
+      <div class="black_hart">♥<%= post.favorites.count %> </div>
+     <% end %>
+    <% end %>
+  </li>
   </ul>
+  <ul class="post__nickname__profile">
+  <li>
+   <% if post.user.profile_image.url.present? %>
+  <div class="icon_image__area"><img src=<%= post.user.profile_image.url %> class = "icon_image"></div>
+  <% end %>
+  </li>
+  <li>
+  <%= link_to "#{post.user.nickname}", user_path(post.user_id),class:"name__link" %>
+  
+    <% end %>
+  <% if user_signed_in? %>
+  <% unless current_user.id == post.user.id %>
+    <%= render "follows/follow_button", user: post.user.id %>
+  <% end %>
+<% end %>
+  </li>
+  </ul>
+  </li>
+  <% end %>
+</ul>
 </div>
+<% end %>
+<h2>投稿件数:<%= @province_num %>件</h2>
  <%= link_to "メインページに戻る", root_path, class: 'btn'%>
 <%= render "shared/footer" %>
