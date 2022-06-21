@@ -25,7 +25,7 @@ https://docs.google.com/spreadsheets/d/15fGuyuroHvQm7HLGdeNhtPyawGrZCWFVT823LFLi
 1.ActionCableを用いたコメント非同期処理  
 [![Image from Gyazo](https://i.gyazo.com/8c9268d59f9ba628f09c1039d3c23784.gif)](https://gyazo.com/8c9268d59f9ba628f09c1039d3c23784)  
 
-2.GoogleMapAPIを利用した地図情報の埋め込み(※現在geocodeにエラーが出て、緯度と経度を算出できていない状況になっています。)  
+2.GoogleMapAPIを利用した地図情報の埋め込み  
 [![Image from Gyazo](https://i.gyazo.com/bc4a8396f0d4aa57339caec1cf1f26d3.gif)](https://gyazo.com/bc4a8396f0d4aa57339caec1cf1f26d3)  
 
 3.JavaScriptを用いた、ページへの動的機能の実装  
@@ -36,12 +36,14 @@ https://docs.google.com/spreadsheets/d/15fGuyuroHvQm7HLGdeNhtPyawGrZCWFVT823LFLi
 ・画像プレビュー機能の実装  
 [![Image from Gyazo](https://i.gyazo.com/a614d919cb67937b7b0ffe89e9d82180.gif)](https://gyazo.com/a614d919cb67937b7b0ffe89e9d82180)  
 
-4.jQueryを用いた実装
+4.jQueryを用いた実装  
 ・stickyヘッダー  
-[![Image from Gyazo](https://i.gyazo.com/3cccff8a35cbdace2bd9fb7c04d22566.gif)](https://gyazo.com/3cccff8a35cbdace2bd9fb7c04d22566)  
+[![Image from Gyazo](https://i.gyazo.com/f79fed82f679944c894778775e26325f.gif)](https://gyazo.com/f79fed82f679944c894778775e26325f)  
+・slickを用いたスライドショー  
+[![Image from Gyazo](https://i.gyazo.com/42c1a439fe1a12e35945794cceb8d48e.gif)](https://gyazo.com/42c1a439fe1a12e35945794cceb8d48e)
 
 5.ActiveHashとransackを用いたカテゴリー別詳細ページの実装  
-[![Image from Gyazo](https://i.gyazo.com/0f72b0c8d4e7472a0bd7885d1a8e5c40.gif)](https://gyazo.com/0f72b0c8d4e7472a0bd7885d1a8e5c40)  
+[![Image from Gyazo](https://i.gyazo.com/e82252b8404e7565a2249baaecf8604b.gif)](https://gyazo.com/e82252b8404e7565a2249baaecf8604b)
 
 #  実装予定の機能
 1.各都道府県ごとの投稿一覧ページに、現地が所在する県庁所在地の天気予報を表示  
@@ -55,7 +57,7 @@ https://docs.google.com/spreadsheets/d/15fGuyuroHvQm7HLGdeNhtPyawGrZCWFVT823LFLi
 3.お気に入り機能、フォロー機能への非同期処理を導入  
 上記のUXを改善するために必須であり、JavaScriptへの知識を深めたいと考えているので非同期処理への理解を深めたいと思います。  
 
-4.お気に入り登録した投稿のとフォローしているユーザーの投稿をそれぞれ一覧表示にできるビュー作成  
+4.お気に入り登録した投稿とフォローしているユーザーの投稿をそれぞれ一覧表示にできるビュー作成  
 
 5.単体テストコード追加  
 
@@ -146,7 +148,14 @@ https://docs.google.com/spreadsheets/d/15fGuyuroHvQm7HLGdeNhtPyawGrZCWFVT823LFLi
 ・HTML  
 ・CSS  
 ・JavaScript  
-・jQuery
+・jQuery  
+
+#  単体テスト
+1.Userテスト  
+[![Image from Gyazo](https://i.gyazo.com/2b47241bdc60fb2515692c7dff9503f8.gif)](https://gyazo.com/2b47241bdc60fb2515692c7dff9503f8)  
+
+2.Postテスト  
+
 
 #  工夫したポイント
 1.GoogleMapAPIを用いた、マップの埋め込み
