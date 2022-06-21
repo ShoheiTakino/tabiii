@@ -16,6 +16,11 @@
   color: darkslategrey;
 }
 
+.category__under {
+  border-bottom: 3px solid darkslategray;
+  padding-bottom: 50px;
+}
+
 .none {
   font-size: 8vh;
   font-weight: 700;
