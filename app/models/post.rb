@@ -12,7 +12,7 @@ class Post < ApplicationRecord
 
   has_one_attached :image
 
-  validates :title, presence: true
+  validates :title, length: { minimum: 1, maximum: 20 }
   validates :content, length: { minimum: 1, maximum: 400 }
   validates :image,       presence: true
   validates :province_id, numericality: { other_than: 1, message: "can't be blank" }

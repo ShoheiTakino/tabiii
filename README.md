@@ -155,7 +155,7 @@ https://docs.google.com/spreadsheets/d/15fGuyuroHvQm7HLGdeNhtPyawGrZCWFVT823LFLi
 [![Image from Gyazo](https://i.gyazo.com/2b47241bdc60fb2515692c7dff9503f8.gif)](https://gyazo.com/2b47241bdc60fb2515692c7dff9503f8)  
 
 2.Postテスト  
-
+[![Image from Gyazo](https://i.gyazo.com/0a744811c5f51abcc678d9de53ea9e42.gif)](https://gyazo.com/0a744811c5f51abcc678d9de53ea9e42)
 
 #  工夫したポイント
 1.GoogleMapAPIを用いた、マップの埋め込み
