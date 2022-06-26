@@ -3,12 +3,12 @@
   width: 130vw;
   display: flex;  
   justify-content: space-between;
-  position: relative;/*h1の中央寄せ配置の起点とするためのrelative*/
+  position: relative;
 }
 
 .video__area {
   position: fixed;
-  z-index: -1;/*最背面に設定*/
+  z-index: -1;
   top: 0;
   right:0;
   left:0;
@@ -22,9 +22,8 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    /*縦横幅指定*/
-    width: 177.77777778vh; /* 16:9 の幅→16 ÷ 9＝ 177.77% */
-    height: 56.25vw; /* 16:9の幅 → 9 ÷ 16 = 56.25% */
+    width: 177.77777778vh; 
+    height: 56.25vw; 
     min-height: 100%;
     min-width: 100%;
 }
@@ -33,7 +32,7 @@
 
 
 .registration__new__left {
- height: 120vh;
+ height: 140vh;
  width: 50vw;
  
 }
@@ -51,7 +50,7 @@
   width: 40vw;
   height: fit-content;
   margin-bottom: 15px;
-  margin: 100px auto;
+  margin: 50px auto;
   border: 1px gray solid;
   border-radius: 5px;
   background:rgba(250, 250, 249, 0.7);
