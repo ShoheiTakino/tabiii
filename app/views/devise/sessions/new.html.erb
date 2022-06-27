@@ -30,14 +30,18 @@
     </div>
   <% end %>
 
-  <%= link_to user_google_oauth2_omniauth_authorize_path, method: :post do%>
-  <%= image_tag 'googleicon.png', class:"google__icon"%>
-  <% end %>
+  
 
 
   <div class="actions">
-    <%= f.submit "Log in" %>
+    <%= f.submit class:'login' %>
+    <%= image_submit_tag('loginicon.png', class:"login__btn")%>
   </div>
+
+  <%= link_to user_google_oauth2_omniauth_authorize_path, method: :post do%>
+  <%= image_tag 'googleicon.png', class:"google__icon"%><br>
+  <% end %>
+
   <%= render "devise/shared/links" %>
 <% end %>
 

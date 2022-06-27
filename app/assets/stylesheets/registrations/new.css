@@ -128,3 +128,19 @@
 .registration__title {
   color: white;
 }
+
+.signup {
+  display: none;
+}
+
+.signup__btn {
+  height: 30px;
+  width: 30px;
+  opacity: 0.9;
+  transition: 0.5s;
+}
+
+.signup__btn:hover {
+  opacity: 0.5;
+  transition: 0.9s;
+}

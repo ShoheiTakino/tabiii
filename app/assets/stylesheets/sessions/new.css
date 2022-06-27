@@ -108,3 +108,31 @@
   width: 50vw;
   height: 100vh;
 }
+
+.login {
+  display: none;
+}
+
+.login__btn {
+  height: 30px;
+  width: 30px;
+  opacity: 0.8;
+  transition: 0.5s;
+}
+
+.login__btn:hover {
+  opacity: 0.6;
+  transition: 0.9s;
+}
+
+.google__icon {
+  height: 30px;
+  width: 30px;
+  opacity: 0.9;
+  transition: 0.5s;
+}
+
+.google__icon {
+  opacity: 0.6;
+  transition: 0.9s;
+}
