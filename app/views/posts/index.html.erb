@@ -56,16 +56,7 @@
   <li class="post__place">
   <%= post.province.name%><br>
   </li>
-  </ul>
-  <ul class="post__nickname__profile">
   <li>
-   <% if post.user.profile_image.url.present? %>
-  <div class="icon_image__area"><img src=<%= post.user.profile_image.url %> class = "icon_image"></div>
-  <% end %>
-  </li>
-  
-  <li>
-  <%= link_to "#{post.user.nickname}", user_path(post.user_id),class:"name__link" %>
   <% if user_signed_in? %>
     <% if post.favorited_by?(current_user) %>
     <%= link_to post_favorites_path(post), method: :delete, class: "favorite_btn" do %>
@@ -77,7 +68,20 @@
      <% end %>
     <% end %>
     <% end %>
-  <% if user_signed_in? %>
+  </li>
+  </ul>
+  <ul class="post__nickname__profile">
+  <li>
+   <% if post.user.profile_image.url.present? %>
+  <div class="icon_image__area"><img src=<%= post.user.profile_image.url %> class = "icon_image"></div>
+  <% end %>
+  </li>
+  <li>
+ <%= link_to "#{post.user.nickname}", user_path(post.user_id),class:"name__link" %>
+  </li>
+  
+  <li>
+    <% if user_signed_in? %>
   <% unless current_user.id == post.user.id %>
     <%= render "follows/follow_button", user: post.user.id %>
   <% end %>
@@ -90,7 +94,8 @@
 <div class="serch__btn">
   <%= search_form_for @q, url: post_category_path do |f| %>
     <%= f.collection_select :province_id_eq, Province.where.not(id: 0), :id, :name, include_blank: "都道府県検索" %>
-    <%= f.submit '探す' %>
+    <%= f.submit class:'search' %>
+     <%= image_submit_tag('searchicon.png', class:"search__btn")%>
 <% end %>
 </div>
   <% if user_signed_in? %>
@@ -154,15 +159,7 @@
   <li class="post__place">
   <%= post.province.name%><br>
   </li>
-  </ul>
-  <ul class="post__nickname__profile">
   <li>
-   <% if post.user.profile_image.url.present? %>
-  <div class="icon_image__area"><img src=<%= post.user.profile_image.url %> class = "icon_image"></div>
-  <% end %>
-  </li>
-  <li>
-  <%= link_to "#{post.user.nickname}", user_path(post.user_id),class:"name__link" %>
   <% if user_signed_in? %>
     <% if post.favorited_by?(current_user) %>
     <%= link_to post_favorites_path(post), method: :delete, class: "favorite_btn" do %>
@@ -174,7 +171,20 @@
      <% end %>
     <% end %>
     <% end %>
-  <% if user_signed_in? %>
+  </li>
+  </ul>
+  <ul class="post__nickname__profile">
+   <li>
+   <% if post.user.profile_image.url.present? %>
+  <div class="icon_image__area"><img src=<%= post.user.profile_image.url %> class = "icon_image"></div>
+  <% end %>
+  </li>
+  <li>
+ <%= link_to "#{post.user.nickname}", user_path(post.user_id),class:"name__link" %>
+  </li>
+  
+  <li>
+    <% if user_signed_in? %>
   <% unless current_user.id == post.user.id %>
     <%= render "follows/follow_button", user: post.user.id %>
   <% end %>
