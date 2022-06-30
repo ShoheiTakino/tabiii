@@ -103,8 +103,7 @@
 }
 
 .registration__select {
-  display: flex;
-  justify-content: space-around;
+  display: left;
 }
 
 .registration__right {
@@ -112,6 +111,15 @@
   color: black;
 }
 
+.google__icon {
+  opacity: 0.9;
+  transition: 0.5s;
+}
+
+.google__icon:hover {
+  opacity: 0.5;
+  transition: 0.9s;
+} 
 
 
 .registration__new__right {
