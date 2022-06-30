@@ -3,12 +3,12 @@
   width: 130vw;
   display: flex;  
   justify-content: space-between;
-  position: relative;/*h1の中央寄せ配置の起点とするためのrelative*/
+  position: relative;
 }
 
 .video__area {
   position: fixed;
-  z-index: -1;/*最背面に設定*/
+  z-index: -1;
   top: 0;
   right:0;
   left:0;
@@ -22,9 +22,8 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    /*縦横幅指定*/
-    width: 177.77777778vh; /* 16:9 の幅→16 ÷ 9＝ 177.77% */
-    height: 56.25vw; /* 16:9の幅 → 9 ÷ 16 = 56.25% */
+    width: 177.77777778vh; 
+    height: 56.25vw; 
     min-height: 100%;
     min-width: 100%;
 }
