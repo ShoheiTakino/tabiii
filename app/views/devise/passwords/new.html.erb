@@ -1,4 +1,12 @@
-<h2>Forgot your password?</h2>
+<div class="registration__new__full">
+
+<div class="video__area">
+<%= video_tag("/videos/49053.mp4", autoplay: :true, loop: :true, muted: :true,class:"video") %>
+</div>
+
+<div class="registration__new__left">
+<div class="registration__input__area">
+<div class="registration__input__area__inner">
 
 <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
@@ -14,3 +22,11 @@
 <% end %>
 
 <%= render "devise/shared/links" %>
+
+</div>
+</div>
+</div>
+<div class="registration__new__right">
+
+</div>
+</div>
